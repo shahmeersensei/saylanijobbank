@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import { Volume2 } from 'lucide-react';
 import Image from 'next/image';
 
@@ -16,9 +19,15 @@ export function StoriesSection() {
   ];
 
   return (
-    <section className="bg-[#F9F9F9] py-16 sm:py-24">
+    <section className="bg-[#F9F9F9] py-16 sm:py-24 overflow-hidden">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mx-auto max-w-2xl text-center"
+        >
           <span className="text-base font-normal text-[#8CC641]">
             Stories
           </span>
@@ -29,33 +38,42 @@ export function StoriesSection() {
             Hear from candidates who found steady work through the Job Bank, and from the employers who
             trusted us to find them.
           </p>
-        </div>
+        </motion.div>
 
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
-          {stories.map((s) => (
-            <div
+          {stories.map((s, idx) => (
+            <motion.div
               key={s.name}
-              className="relative overflow-hidden rounded-[32px] bg-neutral-900 text-white shadow-xl h-[340px] sm:h-[380px] flex flex-col justify-between p-8"
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: idx * 0.15 }}
+              whileHover={{ y: -6 }}
+              className="group relative overflow-hidden rounded-[32px] bg-neutral-900 text-white shadow-xl h-[340px] sm:h-[380px] flex flex-col justify-between p-8 cursor-pointer"
             >
               <Image
                 src={s.image}
                 alt={s.name}
                 fill
-                className="object-cover object-center select-none"
+                className="object-cover object-center select-none transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent transition-opacity group-hover:opacity-90" />
 
-              {/* Play / Audio Center Button */}
-              <div className="relative z-10 m-auto flex size-14 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur shadow-md transition-transform hover:scale-110 cursor-pointer">
+              {/* Play / Audio Center Button with spring hover and gentle pulse */}
+              <motion.div
+                whileHover={{ scale: 1.15 }}
+                whileTap={{ scale: 0.95 }}
+                className="relative z-10 m-auto flex size-14 items-center justify-center rounded-full bg-white/25 text-white backdrop-blur-md shadow-lg transition-colors group-hover:bg-[#8CC641]"
+              >
                 <Volume2 className="size-6 fill-white" />
-              </div>
+              </motion.div>
 
               {/* Bottom Candidate Info Overlay */}
               <div className="relative z-10">
                 <h3 className="text-[32px] font-semibold text-white tracking-tight leading-none">{s.name}</h3>
                 <p className="text-sm font-semibold text-white/90 mt-2">{s.role}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -1,5 +1,6 @@
 'use client';
 
+import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowRight, Search } from 'lucide-react';
 import NextLink from 'next/link';
 import { useState } from 'react';
@@ -26,7 +27,7 @@ export function LatestOpeningsSection() {
   });
 
   return (
-    <section className="bg-white py-16 sm:py-24">
+    <section className="bg-white py-16 sm:py-24 overflow-hidden">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
         <div>
           <h2 className="text-3xl font-semibold tracking-tight text-black sm:text-[32px]">Latest openings</h2>
@@ -35,7 +36,7 @@ export function LatestOpeningsSection() {
           </p>
         </div>
 
-        {/* Filter Bar with Search on Left and Category Pills on Right */}
+        {/* Filter Bar */}
         <div className="mt-8 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex w-full max-w-sm items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-base">
             <Search className="size-4 text-gray-400" />
@@ -54,52 +55,65 @@ export function LatestOpeningsSection() {
                 key={tab}
                 type="button"
                 onClick={() => setActiveTab(tab)}
-                className={`rounded-full px-5 py-2 text-base font-medium transition-all ${
-                  activeTab === tab
-                    ? 'bg-black text-white shadow-sm'
-                    : 'bg-transparent text-black hover:bg-gray-100'
+                className={`relative rounded-full px-5 py-2 text-base font-medium transition-colors ${
+                  activeTab === tab ? 'text-white' : 'text-black hover:bg-gray-100'
                 }`}
               >
-                {tab}
+                {activeTab === tab && (
+                  <motion.div
+                    layoutId="activeTabPill"
+                    className="absolute inset-0 rounded-full bg-black"
+                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                  />
+                )}
+                <span className="relative z-10">{tab}</span>
               </button>
             ))}
           </div>
         </div>
 
-        {/* Full-Width Horizontal Job Rows Matching Figma */}
-        <div className="mt-8 space-y-3">
-          {filtered.map((job) => (
-            <div
-              key={job.id}
-              className="flex flex-col justify-between gap-4 rounded-2xl border border-gray-100 bg-[#F9F9F9] p-6 transition-all hover:bg-white hover:border-gray-200 hover:shadow-xs sm:flex-row sm:items-center"
-            >
-              <div>
-                <h3 className="text-2xl font-normal text-black">{job.title}</h3>
-                <div className="mt-2 flex flex-wrap items-center gap-2">
-                  {job.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="rounded-full bg-white px-3.5 py-1 text-sm font-normal text-black border border-gray-100"
-                    >
-                      {t}
-                    </span>
-                  ))}
+        {/* Full-Width Horizontal Job Rows */}
+        <motion.div layout className="mt-8 space-y-3">
+          <AnimatePresence mode="popLayout">
+            {filtered.map((job) => (
+              <motion.div
+                key={job.id}
+                layout
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.25 }}
+                whileHover={{ y: -2, x: 4 }}
+                className="flex flex-col justify-between gap-4 rounded-2xl border border-gray-100 bg-[#F9F9F9] p-6 transition-shadow hover:bg-white hover:border-gray-300 hover:shadow-md sm:flex-row sm:items-center cursor-pointer"
+              >
+                <div>
+                  <h3 className="text-2xl font-normal text-black">{job.title}</h3>
+                  <div className="mt-2 flex flex-wrap items-center gap-2">
+                    {job.tags.map((t) => (
+                      <span
+                        key={t}
+                        className="rounded-full bg-white px-3.5 py-1 text-sm font-normal text-black border border-gray-100"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
 
-              <div className="text-left sm:text-right">
-                <p className="text-sm font-bold text-black">{job.salary}</p>
-                <p className="text-xs text-gray-500">{job.period}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+                <div className="text-left sm:text-right">
+                  <p className="text-sm font-bold text-black">{job.salary}</p>
+                  <p className="text-xs text-gray-500">{job.period}</p>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
 
         {/* View All Openings Button */}
         <div className="mt-10 text-center">
           <NextLink
             href="/jobs"
-            className="inline-flex items-center gap-2 rounded-full bg-[#8CC641] px-8 py-3.5 text-base font-medium text-white shadow-sm transition-all hover:bg-[#7CB337]"
+            className="inline-flex items-center gap-2 rounded-full bg-[#8CC641] px-8 py-3.5 text-base font-medium text-white shadow-sm transition-all hover:bg-[#7CB337] hover:gap-3"
           >
             View all openings
             <ArrowRight className="size-4" />

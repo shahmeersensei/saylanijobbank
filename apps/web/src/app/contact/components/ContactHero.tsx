@@ -1,10 +1,18 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 export function ContactHero() {
   return (
-    <section className="bg-white pt-12 pb-16 lg:pt-20 lg:pb-24 border-b border-gray-100">
+    <section className="bg-white pt-12 pb-16 lg:pt-20 lg:pb-24 border-b border-gray-100 overflow-hidden">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between"
+        >
           <div className="max-w-xl">
             <h1 className="text-4xl font-bold tracking-tight text-black sm:text-5xl lg:text-[58px] leading-tight">
               We&apos;re Here to Help.
@@ -17,18 +25,26 @@ export function ContactHero() {
             </p>
 
             <div className="mt-6">
-              <a
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 href="#message-form"
                 className="inline-flex items-center justify-center rounded-full bg-[#8CC641] px-7 py-3 text-base font-medium text-white shadow-sm transition-all hover:bg-[#7CB337]"
               >
                 Contact us
-              </a>
+              </motion.a>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Real Support Representative Photo from Figma */}
-        <div className="mt-12 overflow-hidden rounded-[32px] border border-gray-200/80 bg-neutral-900 shadow-xl">
+        {/* Real Support Representative Photo from Figma with subtle hover */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          whileHover={{ y: -4 }}
+          className="mt-12 overflow-hidden rounded-[32px] border border-gray-200/80 bg-neutral-900 shadow-xl transition-shadow hover:shadow-2xl cursor-pointer"
+        >
           <div className="relative aspect-[21/8.5] w-full">
             <Image
               src="/assets/contact-support.png"
@@ -38,7 +54,7 @@ export function ContactHero() {
               className="object-cover object-center select-none"
             />
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

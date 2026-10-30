@@ -17,7 +17,7 @@ export function ContactFormSection() {
                 <input
                   type="text"
                   placeholder="Enter your full name"
-                  className="mt-2 w-full rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-base text-black placeholder:text-gray-400 focus:outline-none"
+                  className="mt-2 w-full rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-base text-black placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black"
                 />
               </div>
 
@@ -26,13 +26,13 @@ export function ContactFormSection() {
                 <input
                   type="email"
                   placeholder="Enter your Email address"
-                  className="mt-2 w-full rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-base text-black placeholder:text-gray-400 focus:outline-none"
+                  className="mt-2 w-full rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-base text-black placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black"
                 />
               </div>
 
               <div>
                 <label className="text-lg font-medium text-black">I am a</label>
-                <select className="mt-2 w-full rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-base text-black focus:outline-none cursor-pointer">
+                <select className="mt-2 w-full rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-base text-black focus:outline-none focus:ring-1 focus:ring-black cursor-pointer">
                   <option>Select the desired occupation</option>
                   <option>Job Seeker</option>
                   <option>Employer / Hiring Partner</option>
@@ -45,7 +45,7 @@ export function ContactFormSection() {
                 <input
                   type="text"
                   placeholder="Enter the subject"
-                  className="mt-2 w-full rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-base text-black placeholder:text-gray-400 focus:outline-none"
+                  className="mt-2 w-full rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-base text-black placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black"
                 />
               </div>
 
@@ -54,7 +54,7 @@ export function ContactFormSection() {
                 <textarea
                   rows={4}
                   placeholder="Please provide a detailed description of your message here..."
-                  className="mt-2 w-full rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-base text-black placeholder:text-gray-400 focus:outline-none resize-none"
+                  className="mt-2 w-full rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-base text-black placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black resize-none"
                 />
               </div>
 
@@ -67,8 +67,8 @@ export function ContactFormSection() {
             </form>
           </div>
 
-          {/* Right Column: Saylani Job Bank Info */}
-          <div className="flex flex-col justify-between rounded-3xl border border-gray-100 bg-white p-8 shadow-sm sm:p-10 lg:col-span-6 min-h-full">
+          {/* Right Column: Sticky Saylani Job Bank Info */}
+          <div className="flex flex-col justify-between rounded-3xl border border-gray-100 bg-white p-8 shadow-sm sm:p-10 lg:col-span-6 lg:sticky lg:top-24">
             <div>
               <h2 className="text-2xl font-normal text-black sm:text-[36px]">
                 Saylani Job Bank Info

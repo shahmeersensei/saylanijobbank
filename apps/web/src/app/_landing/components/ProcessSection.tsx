@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import { BrandMark } from '@/components/brands/BrandMark';
 
 const STEPS = [
@@ -29,9 +32,15 @@ const STEPS = [
 
 export function ProcessSection() {
   return (
-    <section className="bg-[#F9F9F9] py-16 sm:py-24">
+    <section className="bg-[#F9F9F9] py-16 sm:py-24 overflow-hidden">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-2xl mx-auto"
+        >
           <span className="text-base font-normal text-[#8CC641]">
             Process
           </span>
@@ -42,19 +51,25 @@ export function ProcessSection() {
             Four simple steps for job seekers and for employers. Every candidate is assessed, every match
             is checked, and no fees are charged at any stage.
           </p>
-        </div>
+        </motion.div>
 
         <div className="mt-14 grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
-          {/* Left Column: 4 Steps */}
+          {/* Left Column: 4 Steps with stagger */}
           <div className="space-y-4 lg:col-span-7">
-            {STEPS.map((s) => (
-              <div
+            {STEPS.map((s, idx) => (
+              <motion.div
                 key={s.num}
-                className="flex items-start gap-4 rounded-2xl bg-white p-6 border border-gray-100 shadow-xs"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                whileHover={{ x: 6 }}
+                className="flex items-start gap-4 rounded-2xl bg-white p-6 border border-gray-100 shadow-xs cursor-pointer transition-all hover:border-black/20 hover:shadow-md"
               >
                 <div
-                  className={`flex size-8 shrink-0 items-center justify-center rounded-full text-sm font-medium ${s.active ? 'bg-black text-white' : 'bg-gray-300 text-white'
-                    }`}
+                  className={`flex size-8 shrink-0 items-center justify-center rounded-full text-sm font-medium ${
+                    s.active ? 'bg-black text-white' : 'bg-gray-300 text-white'
+                  }`}
                 >
                   {s.num}
                 </div>
@@ -62,12 +77,18 @@ export function ProcessSection() {
                   <h3 className="text-xl font-medium text-black">{s.title}</h3>
                   <p className="mt-1 text-sm font-normal text-black/70 leading-relaxed">{s.desc}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
           {/* Right Column: Exact Registration Card from Figma */}
-          <div className="lg:col-span-5">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="lg:col-span-5"
+          >
             <div className="mx-auto w-full max-w-md rounded-3xl border border-gray-100 bg-white p-8 shadow-sm">
               <div className="flex justify-center">
                 <BrandMark />
@@ -94,19 +115,21 @@ export function ProcessSection() {
                   />
                 </div>
 
-                <button
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   type="button"
-                  className="w-full rounded-full bg-black py-3.5 text-lg font-medium text-white transition-all hover:bg-neutral-800"
+                  className="w-full rounded-full bg-black py-3.5 text-lg font-medium text-white shadow-sm transition-all hover:bg-neutral-800"
                 >
                   Create Account
-                </button>
+                </motion.button>
 
                 <p className="text-center text-xs font-normal text-black/60">
                   Free & secure registration verified by OTP
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

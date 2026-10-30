@@ -1,24 +1,45 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 export function HeroGraphicCard() {
   return (
     <div className="relative w-full max-w-[480px]">
-      {/* Green rounded frame from Figma */}
-      <div className="relative aspect-[4/4.4] w-full overflow-hidden rounded-[36px] bg-[#8CC641] shadow-2xl">
-        {/* Real Graduate Cutout Photo from Figma (image 32) */}
+      {/* Green rounded frame with subtle 3D tilt hover */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.94 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        whileHover={{ y: -4, rotate: 0.5 }}
+        className="relative aspect-[4/4.4] w-full overflow-hidden rounded-[36px] bg-[#8CC641] shadow-2xl transition-shadow hover:shadow-[0_20px_50px_rgba(140,198,65,0.35)]"
+      >
+        {/* Real Graduate Cutout Photo from Figma */}
         <div className="absolute inset-0 flex items-end justify-center">
-          <Image
-            src="/assets/hero-graduate.png"
-            alt="Saylani Qualified Candidate"
-            width={501}
-            height={476}
-            priority
-            className="h-[92%] w-auto object-contain object-bottom select-none"
-          />
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
+            className="h-[92%] w-auto flex items-end justify-center"
+          >
+            <Image
+              src="/assets/hero-graduate.png"
+              alt="Saylani Qualified Candidate"
+              width={501}
+              height={476}
+              priority
+              className="h-full w-auto object-contain object-bottom select-none"
+            />
+          </motion.div>
         </div>
 
-        {/* Floating Badge Top Right: Product Designer / Microsoft (Figma Frame) */}
-        <div className="absolute right-3 top-6 z-20 flex items-center gap-3 rounded-2xl bg-white p-3 shadow-xl border border-gray-100">
+        {/* Floating Badge Top Right: Microsoft with gentle float animation */}
+        <motion.div
+          animate={{ y: [0, -7, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+          whileHover={{ scale: 1.05 }}
+          className="absolute right-3 top-6 z-20 flex items-center gap-3 rounded-2xl bg-white/95 backdrop-blur-md p-3 shadow-xl border border-gray-100 cursor-pointer"
+        >
           <div className="flex size-9 items-center justify-center rounded-lg bg-gray-50 p-1.5 shadow-xs">
             <svg className="size-5 shrink-0" viewBox="0 0 21 21" fill="none">
               <rect x="1" y="1" width="9" height="9" fill="#f25022" />
@@ -32,10 +53,15 @@ export function HeroGraphicCard() {
             <p className="text-xs text-gray-500 mt-1">Microsoft</p>
             <p className="text-sm font-medium text-black mt-1">$12000 Yearly</p>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Floating Badge Bottom Left: Motion Designer / Google (Figma Frame) */}
-        <div className="absolute bottom-6 left-3 z-20 flex items-center gap-3 rounded-2xl bg-white p-3 shadow-xl border border-gray-100">
+        {/* Floating Badge Bottom Left: Google with counter float animation */}
+        <motion.div
+          animate={{ y: [0, 7, 0] }}
+          transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+          whileHover={{ scale: 1.05 }}
+          className="absolute bottom-6 left-3 z-20 flex items-center gap-3 rounded-2xl bg-white/95 backdrop-blur-md p-3 shadow-xl border border-gray-100 cursor-pointer"
+        >
           <div className="flex size-9 items-center justify-center rounded-lg bg-gray-50 p-1.5 shadow-xs">
             <svg className="size-5 shrink-0" viewBox="0 0 24 24">
               <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
@@ -49,8 +75,8 @@ export function HeroGraphicCard() {
             <p className="text-xs text-gray-500 mt-1">Google</p>
             <p className="text-sm font-medium text-black mt-1">$12000 Yearly</p>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }

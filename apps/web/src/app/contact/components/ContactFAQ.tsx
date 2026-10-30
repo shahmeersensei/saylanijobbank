@@ -1,5 +1,6 @@
 'use client';
 
+import { AnimatePresence, motion } from 'framer-motion';
 import { Minus, Plus } from 'lucide-react';
 import { useState } from 'react';
 
@@ -26,9 +27,15 @@ export function ContactFAQ() {
   const [openIdx, setOpenIdx] = useState<number | null>(1); // 2nd open in Figma
 
   return (
-    <section className="bg-white py-16 sm:py-24">
+    <section className="bg-white py-16 sm:py-24 overflow-hidden">
       <div className="mx-auto max-w-[1000px] px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center"
+        >
           <span className="text-base font-normal text-[#8CC641]">
             Faq
           </span>
@@ -39,7 +46,7 @@ export function ContactFAQ() {
             Find quick answers about registration, matching and fees, or contact our team if you can’t
             find what you need.
           </p>
-        </div>
+        </motion.div>
 
         <div className="mt-12 divide-y divide-gray-100">
           {CONTACT_FAQS.map((item, idx) => {
@@ -52,17 +59,29 @@ export function ContactFAQ() {
                   className="flex w-full items-center justify-between text-left text-lg font-normal text-black hover:text-[#8CC641] transition-colors"
                 >
                   <span className={idx === 1 ? 'text-xl font-medium' : ''}>{item.q}</span>
-                  {isOpen ? (
-                    <Minus className="size-5 shrink-0 text-black" />
-                  ) : (
-                    <Plus className="size-5 shrink-0 text-gray-400" />
-                  )}
+                  <div className="size-6 flex items-center justify-center">
+                    {isOpen ? (
+                      <Minus className="size-5 shrink-0 text-black" />
+                    ) : (
+                      <Plus className="size-5 shrink-0 text-gray-400" />
+                    )}
+                  </div>
                 </button>
-                {isOpen && (
-                  <p className="mt-3 text-lg font-normal text-black/80 leading-relaxed pr-8">
-                    {item.a}
-                  </p>
-                )}
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <p className="pt-3 text-lg font-normal text-black/80 leading-relaxed pr-8">
+                        {item.a}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             );
           })}

@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const TEAM = [
@@ -9,34 +12,45 @@ const TEAM = [
 
 export function AboutLeadership() {
   return (
-    <section className="bg-[#F9F9F9] py-16 sm:py-24">
+    <section className="bg-[#F9F9F9] py-16 sm:py-24 overflow-hidden">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mx-auto max-w-2xl text-center"
+        >
           <h2 className="text-3xl font-semibold text-black sm:text-[32px]">The people behind the Job Bank</h2>
           <p className="mt-3 text-base font-medium text-black/80">
             The team that registers, assesses and matches every candidate.
           </p>
-        </div>
+        </motion.div>
 
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {TEAM.map((member) => (
-            <div
+          {TEAM.map((member, idx) => (
+            <motion.div
               key={member.name}
-              className="relative overflow-hidden rounded-[28px] bg-neutral-900 text-white shadow-md h-[340px] flex flex-col justify-end p-6"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              whileHover={{ y: -6 }}
+              className="group relative overflow-hidden rounded-[28px] bg-neutral-900 text-white shadow-md h-[340px] flex flex-col justify-end p-6 cursor-pointer"
             >
               <Image
                 src={member.image}
                 alt={member.name}
                 fill
-                className="object-cover object-top select-none"
+                className="object-cover object-top select-none transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent transition-opacity group-hover:opacity-90" />
 
               <div className="relative z-10 border-t border-white/20 pt-3">
                 <h3 className="text-2xl font-semibold text-white leading-tight">{member.name}</h3>
                 <p className="text-sm font-medium text-white/90 mt-1">{member.role}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -124,13 +124,16 @@ export default function JobsPage() {
         setSelectedCity={setSelectedCity}
       />
       <main className="py-12">
-        <div className="mx-auto flex max-w-[1240px] flex-col gap-8 px-4 sm:px-6 lg:flex-row lg:px-8">
+        <div className="mx-auto flex max-w-[1240px] flex-col gap-8 px-4 sm:px-6 lg:flex-row lg:items-start lg:px-8">
           <JobsFeed
             jobs={filteredJobs}
             selectedId={selectedJob.id}
             onSelect={(job) => setSelectedJob(job)}
           />
-          <JobDetailCard job={selectedJob} />
+          {/* Sticky Job Details Pane for Superior UX */}
+          <div className="w-full flex-1 lg:sticky lg:top-24">
+            <JobDetailCard job={selectedJob} />
+          </div>
         </div>
       </main>
       <CTABanner />
