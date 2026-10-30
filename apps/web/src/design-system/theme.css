@@ -1,0 +1,128 @@
+/*
+ * Semantic colour tokens. Components use ONLY these (via the Tailwind classes mapped in
+ * global.css, e.g. bg-surface, text-fg-muted, bg-primary) so light/dark switch for free.
+ * Contrast: every *-fg / fg / fg-muted pairing meets WCAG AA (≥ 4.5:1) on its background.
+ */
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+
+  --bg: #f9f9f9;
+  --surface: #ffffff;
+  --surface-muted: #f8faf9;
+  --surface-sunken: #ecf0ee;
+  --border: #e8eeed;
+  --border-strong: #c4d0cb;
+
+  --fg: #0c1812;
+  --fg-muted: #3d5048;
+  --fg-subtle: #596b63;
+
+  /* Brand — Saylani vibrant green */
+  --primary: #8cc641;
+  --primary-hover: #7cb337;
+  --primary-fg: #ffffff;
+  --primary-soft: #f0f7e8;
+  --primary-soft-fg: #4f7320;
+
+  /* sidebar — light white, like Oripio */
+  --sidebar-bg: #ffffff;
+  --sidebar-fg: #1a2e24;
+  --sidebar-fg-muted: #6b7d74;
+  --sidebar-active-bg: #f0f7e8;
+  --sidebar-active-fg: #4f7320;
+  --sidebar-hover-bg: #f4f7f5;
+  --sidebar-border: #e8eeed;
+
+  --accent: #0072bb;
+  --accent-hover: #005fa0;
+  --accent-fg: #ffffff;
+  --accent-soft: #e8f2fa;
+  --accent-soft-fg: #004573;
+
+  --success: #15803d;
+  --success-soft: #e0f3e8;
+  --success-soft-fg: #105930;
+  --warning: #b45309;
+  --warning-soft: #fef3e0;
+  --warning-soft-fg: #7c3a0d;
+  --danger: #c0262d;
+  --danger-hover: #a01f25;
+  --danger-fg: #ffffff;
+  --danger-soft: #fce8e9;
+  --danger-soft-fg: #8b1c21;
+  --info: #0369a1;
+  --info-soft: #e0f1fa;
+  --info-soft-fg: #0a4572;
+  --neutral-soft: #eaeeec;
+  --neutral-soft-fg: #324039;
+
+  --focus: #1a5fac;
+  --overlay: rgb(8 16 12 / 0.5);
+  --shadow-color: 160 25% 8%;
+  --shadow-card: none;
+  --shadow-popover:
+    0 4px 8px hsl(var(--shadow-color) / 0.09), 0 12px 28px hsl(var(--shadow-color) / 0.15);
+  --shadow-sidebar: none;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: #09130e;
+  --surface: #0f1c15;
+  --surface-muted: #162119;
+  --surface-sunken: #0b1610;
+  --border: #22302a;
+  --border-strong: #354a42;
+
+  --fg: #e4ece8;
+  --fg-muted: #a2b4ab;
+  --fg-subtle: #87998f;
+
+  --primary: #2ebd6a;
+  --primary-hover: #4dce82;
+  --primary-fg: #031208;
+  --primary-soft: #0e2c1c;
+  --primary-soft-fg: #7ad8a6;
+
+  /* sidebar dark */
+  --sidebar-bg: #0f1c15;
+  --sidebar-fg: #daf0e4;
+  --sidebar-fg-muted: #6a9e80;
+  --sidebar-active-bg: rgba(46, 189, 106, 0.18);
+  --sidebar-active-fg: #7ad8a6;
+  --sidebar-hover-bg: rgba(255, 255, 255, 0.06);
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+
+  --accent: #5a9fe8;
+  --accent-hover: #7ab5ef;
+  --accent-fg: #041228;
+  --accent-soft: #102239;
+  --accent-soft-fg: #9dc5f3;
+
+  --success: #34d272;
+  --success-soft: #0d2819;
+  --success-soft-fg: #7cd9a8;
+  --warning: #f5a524;
+  --warning-soft: #2e2009;
+  --warning-soft-fg: #f6cc7e;
+  --danger: #f07070;
+  --danger-hover: #f58a8a;
+  --danger-fg: #270406;
+  --danger-soft: #351214;
+  --danger-soft-fg: #f4aaaa;
+  --info: #29b6f6;
+  --info-soft: #082535;
+  --info-soft-fg: #92d9f8;
+  --neutral-soft: #182419;
+  --neutral-soft-fg: #bfcdc5;
+
+  --focus: #7ab5ef;
+  --overlay: rgb(0 0 0 / 0.65);
+  --shadow-color: 160 40% 1%;
+  --shadow-card: none;
+  --shadow-popover:
+    0 4px 8px hsl(var(--shadow-color) / 0.35), 0 12px 28px hsl(var(--shadow-color) / 0.45);
+  --shadow-sidebar: none;
+}
