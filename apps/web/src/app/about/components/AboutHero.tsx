@@ -16,16 +16,16 @@ export function AboutHero() {
         >
           {/* Left Title */}
           <div className="max-w-xl">
-            <h1 className="text-4xl leading-tight font-semibold tracking-tight text-black sm:text-5xl lg:text-[54px]">
-              Every skill deserves a job.
+            <h1 className="text-4xl leading-[1.15] font-semibold tracking-tight text-[#000000] sm:text-5xl lg:text-[54px]">
+              Every skill deserves rizq.
             </h1>
           </div>
 
           {/* Right Subtitle & Buttons */}
           <div className="max-w-md">
-            <p className="text-base leading-relaxed font-medium text-black/85">
-              Saylani Job Bank is a free service of Saylani Welfare International Trust. We connect
-              skilled people with employers who are hiring, at zero cost.
+            <p className="text-lg leading-relaxed font-medium text-[#000000]">
+              Saylani Job Bank connects trained individuals with employers across Pakistan. Built
+              on Saylani Welfare's 25-year legacy of empowerment and service.
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -34,16 +34,16 @@ export function AboutHero() {
                   href="/jobs"
                   className="inline-block rounded-full bg-[#8CC641] px-6 py-2.5 text-base font-medium text-white shadow-sm transition-all hover:bg-[#7CB337]"
                 >
-                  Register for Free
+                  Register as Job Seeker
                 </NextLink>
               </motion.div>
 
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <NextLink
                   href="/contact"
-                  className="inline-block rounded-full border border-black/30 bg-white px-6 py-2.5 text-base font-medium text-black shadow-sm transition-all hover:bg-neutral-50"
+                  className="inline-block rounded-full border border-black bg-white px-6 py-2.5 text-base font-medium text-black shadow-sm transition-all hover:bg-black hover:text-white"
                 >
-                  Hire talent
+                  Hire Talent
                 </NextLink>
               </motion.div>
             </div>
