@@ -1,11 +1,5 @@
 {
   "framework": "nextjs",
   "buildCommand": "next build",
-  "outputDirectory": ".next/standalone",
-  "installCommand": "pnpm install",
-  "frameworkSettings": {
-    "nextjs": {
-      "outputStandalone": true
-    }
-  }
+  "installCommand": "pnpm install"
 }
