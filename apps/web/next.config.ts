@@ -7,7 +7,6 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   transpilePackages: ['@jobbank/shared'],
   env: { APP_VERSION: pkg.version },
-  eslint: { ignoreDuringBuilds: true },
 };
 
 export default nextConfig;
