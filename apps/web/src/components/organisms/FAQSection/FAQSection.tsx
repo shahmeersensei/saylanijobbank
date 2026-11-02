@@ -36,43 +36,58 @@ export function FAQSection() {
 
   return (
     <section className="w-full px-4 md:px-[60px]">
-      <div className="mx-auto flex max-w-[1320px] flex-col items-center gap-10 py-10">
+      <div className="mx-auto flex max-w-[1320px] flex-col items-center gap-10 py-6 sm:py-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex max-w-[705px] flex-col items-center gap-4 text-center"
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.5 }}
+          className="flex max-w-[705px] flex-col items-center gap-3 text-center"
         >
-          <span className="text-[16px] leading-[22px] font-normal text-[#8CC641]">Faq</span>
-          <h2 className="text-[30px] leading-[1.25] font-normal text-black sm:text-[40px] sm:leading-[56px]">
+          <span className="text-[16px] leading-[22px] font-medium text-[#8CC641]">Faq</span>
+          <h2 className="text-[28px] leading-[1.25] font-semibold text-black sm:text-[38px] sm:leading-[50px]">
             Common questions from job seekers and employers
           </h2>
-          <p className="text-[18px] leading-[1.4] font-normal text-black/60 sm:text-[22px] sm:leading-[32px]">
+          <p className="text-[16px] leading-relaxed font-normal text-[#787878] sm:text-[18px]">
             Find quick answers about registration, matching and fees, or contact our team if you
             can’t find what you need.
           </p>
         </motion.div>
 
-        <div className="flex w-full flex-col gap-4">
+        <div className="flex w-full flex-col gap-3.5">
           {FAQS.map((item, idx) => {
             const isOpen = openIdx === idx;
             return (
-              <div key={item.q} className="overflow-hidden rounded-[12px] bg-white">
+              <motion.div
+                key={item.q}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
+                className={`overflow-hidden rounded-[14px] border border-black/5 bg-white transition-all duration-200 hover:shadow-xs ${
+                  isOpen ? 'shadow-xs ring-1 ring-[#8CC641]/30' : ''
+                }`}
+              >
                 <button
                   type="button"
                   onClick={() => setOpenIdx(isOpen ? null : idx)}
                   style={{ fontFamily: 'var(--font-manrope), sans-serif' }}
-                  className={`flex w-full items-center justify-between gap-4 px-4 py-4 text-left text-[18px] leading-[24px] font-normal transition-colors ${
-                    isOpen ? 'text-black/50' : 'text-black'
-                  }`}
+                  className="flex w-full items-center justify-between gap-4 px-5 py-4.5 text-left text-[17px] font-medium text-black transition-colors hover:text-[#5E9523] sm:text-[18px]"
                 >
-                  <span>{item.q}</span>
-                  {isOpen ? (
-                    <Minus className="size-5 shrink-0 text-black" />
-                  ) : (
-                    <Plus className="size-5 shrink-0 text-black/60" />
-                  )}
+                  <span className={isOpen ? 'font-semibold text-[#0C1812]' : 'text-black'}>
+                    {item.q}
+                  </span>
+                  <div
+                    className={`flex size-8 shrink-0 items-center justify-center rounded-full transition-colors ${
+                      isOpen ? 'bg-[#8CC641] text-white' : 'bg-[#F4F5F2] text-black/70'
+                    }`}
+                  >
+                    {isOpen ? (
+                      <Minus className="size-4.5 stroke-[2.5]" />
+                    ) : (
+                      <Plus className="size-4.5 stroke-[2.5]" />
+                    )}
+                  </div>
                 </button>
                 <AnimatePresence initial={false}>
                   {isOpen && (
@@ -85,14 +100,14 @@ export function FAQSection() {
                     >
                       <p
                         style={{ fontFamily: 'var(--font-manrope), sans-serif' }}
-                        className="px-4 pb-4 text-[18px] leading-[24px] font-normal text-black"
+                        className="px-5 pb-5 text-[15px] leading-relaxed text-[#596B63] sm:text-[16px]"
                       >
                         {item.a}
                       </p>
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
+              </motion.div>
             );
           })}
         </div>

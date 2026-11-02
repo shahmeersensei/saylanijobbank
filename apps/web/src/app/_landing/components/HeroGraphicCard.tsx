@@ -44,23 +44,39 @@ interface JobCardProps {
   salary: string;
   className?: string;
   delay?: number;
+  floatOffset?: number;
 }
 
-function JobCard({ icon, title, company, salary, className, delay = 0 }: JobCardProps) {
+function JobCard({
+  icon,
+  title,
+  company,
+  salary,
+  className,
+  delay = 0,
+  floatOffset = -8,
+}: JobCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 14 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay }}
-      className={`flex h-[95px] w-[203px] items-center gap-4 rounded-[10px] bg-white p-3 shadow-[0_8px_24px_rgba(0,0,0,0.12)] ${className ?? ''}`}
+      initial={{ opacity: 0, y: 16 }}
+      animate={{
+        opacity: 1,
+        y: [0, floatOffset, 0],
+      }}
+      transition={{
+        opacity: { duration: 0.6, delay },
+        y: { duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay },
+      }}
+      whileHover={{ scale: 1.06, transition: { duration: 0.2 } }}
+      className={`flex h-[95px] w-[203px] cursor-pointer items-center gap-4 rounded-[12px] bg-white p-3 shadow-[0_12px_30px_rgba(0,0,0,0.12)] backdrop-blur-xs transition-shadow duration-200 hover:shadow-[0_16px_36px_rgba(0,0,0,0.18)] ${className ?? ''}`}
     >
-      <div className="flex size-[46px] shrink-0 items-center justify-center rounded-[7px] bg-[#F9F9F9] p-2">
+      <div className="flex size-[46px] shrink-0 items-center justify-center rounded-[8px] bg-[#F7F8F6] p-2 transition-transform duration-200 group-hover:scale-105">
         {icon}
       </div>
       <div className="min-w-0">
-        <p className="truncate text-[16px] leading-[22px] font-medium text-black">{title}</p>
-        <p className="text-[12px] leading-[17px] font-normal text-black/60">{company}</p>
-        <p className="mt-1 text-[16px] leading-[22px] font-medium text-black">{salary}</p>
+        <p className="truncate text-[15px] leading-[20px] font-semibold text-black">{title}</p>
+        <p className="text-[12px] leading-[16px] font-normal text-black/60">{company}</p>
+        <p className="mt-1 text-[15px] leading-[20px] font-semibold text-[#10261A]">{salary}</p>
       </div>
     </motion.div>
   );
@@ -69,14 +85,22 @@ function JobCard({ icon, title, company, salary, className, delay = 0 }: JobCard
 export function HeroGraphicCard() {
   return (
     <div className="relative mx-auto w-full max-w-[534px]">
-      <div className="relative aspect-[534/517] w-full overflow-hidden rounded-[28px] border border-black/10 bg-gradient-to-br from-[#8CC641] to-[#B1DF76]">
+      {/* Soft ambient decorative glow */}
+      <div className="pointer-events-none absolute -top-10 -right-10 -z-10 size-80 rounded-full bg-[#8CC641]/15 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-10 -left-10 -z-10 size-80 rounded-full bg-[#B1DF76]/20 blur-3xl" />
+
+      <motion.div
+        whileHover={{ scale: 1.01 }}
+        transition={{ duration: 0.4 }}
+        className="relative aspect-[534/517] w-full overflow-hidden rounded-[28px] border border-black/10 bg-gradient-to-br from-[#8CC641] to-[#B1DF76] shadow-[0_20px_50px_rgba(140,198,65,0.2)]"
+      >
         <Image
           src="/assets/image_32_107_2766.png"
           alt="Skilled candidate"
           width={501}
           height={476}
           priority
-          className="absolute bottom-0 left-4 h-auto w-[501px] max-w-none"
+          className="absolute bottom-0 left-4 h-auto w-[501px] max-w-none transition-transform duration-500 hover:scale-[1.02]"
         />
 
         <JobCard
@@ -85,22 +109,24 @@ export function HeroGraphicCard() {
           company="Microsoft"
           salary="$12000 Yearly"
           delay={0.2}
+          floatOffset={-8}
           className="absolute top-[172px] left-[315px] hidden lg:flex"
         />
 
-        <div className="absolute bottom-[18px] left-[238px] flex h-3 w-[58px] items-center gap-1 rounded-full bg-[#8CC641] px-0.5">
+        <div className="absolute bottom-[18px] left-[238px] flex h-3 w-[58px] items-center gap-1 rounded-full bg-[#8CC641] px-0.5 shadow-xs">
           <span className="h-2 flex-1 rounded-full bg-white" />
-          <span className="h-2 flex-1 rounded-full bg-white/20" />
-          <span className="h-2 flex-1 rounded-full bg-white/20" />
+          <span className="h-2 flex-1 rounded-full bg-white/30" />
+          <span className="h-2 flex-1 rounded-full bg-white/30" />
         </div>
-      </div>
+      </motion.div>
 
       <JobCard
         icon={<GoogleLogo />}
         title="Motion Designer"
         company="Google"
         salary="$12000 Yearly"
-        delay={0.35}
+        delay={0.4}
+        floatOffset={8}
         className="absolute top-[356px] left-[-107px] hidden lg:flex"
       />
     </div>

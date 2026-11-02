@@ -32,14 +32,8 @@ export function Navbar({ signedIn = false, dashboardHref = '/login', className }
   }, []);
 
   return (
-    <header
-      className={cn(
-        'sticky top-0 z-50 w-full px-4 transition-all duration-300 md:px-[60px]',
-        scrolled ? 'pt-2' : 'pt-0',
-        className,
-      )}
-    >
-      <div className="mx-auto flex h-[68px] max-w-[1320px] items-center justify-between rounded-full bg-white px-5 shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
+    <header className={cn('sticky top-0 z-50 w-full px-4 transition-all duration-300 md:px-[60px]', scrolled ? 'pt-2 pb-1' : 'pt-3 pb-2', className)}>
+      <div className={cn('mx-auto flex h-[68px] max-w-[1320px] items-center justify-between rounded-full bg-white/95 px-5 backdrop-blur-md transition-all duration-300', scrolled ? 'border border-black/10 shadow-[0_12px_32px_rgba(0,0,0,0.08)]' : 'border border-black/5 shadow-[0_2px_8px_rgba(0,0,0,0.04)]')}>
         <NextLink href="/" className="flex items-center transition-opacity hover:opacity-90">
           <BrandMark />
         </NextLink>
