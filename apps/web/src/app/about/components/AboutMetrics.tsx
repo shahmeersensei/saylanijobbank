@@ -13,9 +13,9 @@ export function AboutMetrics() {
           {stats.map((s) => (
             <div
               key={s.label}
-              className="rounded-2xl border border-gray-100 bg-white p-6 shadow-xs text-left"
+              className="rounded-2xl border border-gray-100 bg-white p-6 text-left shadow-xs"
             >
-              <p className="text-[32px] font-semibold text-black leading-tight">{s.value}</p>
+              <p className="text-[32px] leading-tight font-semibold text-black">{s.value}</p>
               <p className="mt-2 text-sm font-normal text-black/75">{s.label}</p>
             </div>
           ))}

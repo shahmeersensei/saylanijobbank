@@ -41,7 +41,11 @@ const FIGMA_JOBS: JobSummary[] = [
     salary: 'Rs 120,000 - Rs 140,000 a month',
     type: 'Full-time',
     description: 'Lead marketing strategies, campaigns, and digital channels across Pakistan.',
-    responsibilities: ['Develop annual marketing strategies', 'Manage advertising campaigns and budgets', 'Analyze campaign metrics'],
+    responsibilities: [
+      'Develop annual marketing strategies',
+      'Manage advertising campaigns and budgets',
+      'Analyze campaign metrics',
+    ],
   },
   {
     id: '3',
@@ -50,8 +54,13 @@ const FIGMA_JOBS: JobSummary[] = [
     location: 'Islamabad',
     salary: 'Rs 50,000 - Rs 60,000 a month',
     type: 'Full-time',
-    description: 'Design marketing collateral, social media assets, and corporate brand presentations.',
-    responsibilities: ['Create visual assets in Figma, Photoshop, Illustrator', 'Collaborate with marketing teams', 'Maintain brand guidelines'],
+    description:
+      'Design marketing collateral, social media assets, and corporate brand presentations.',
+    responsibilities: [
+      'Create visual assets in Figma, Photoshop, Illustrator',
+      'Collaborate with marketing teams',
+      'Maintain brand guidelines',
+    ],
   },
   {
     id: '4',
@@ -61,7 +70,11 @@ const FIGMA_JOBS: JobSummary[] = [
     salary: 'Rs 90,000 - Rs 110,000 a month',
     type: 'Full-time',
     description: 'Develop full-stack web and mobile applications using modern frameworks.',
-    responsibilities: ['Build scalable REST APIs and responsive UIs', 'Collaborate in agile sprints', 'Write clean unit and integration tests'],
+    responsibilities: [
+      'Build scalable REST APIs and responsive UIs',
+      'Collaborate in agile sprints',
+      'Write clean unit and integration tests',
+    ],
   },
   {
     id: '5',
@@ -71,7 +84,11 @@ const FIGMA_JOBS: JobSummary[] = [
     salary: 'Rs 55,000 - Rs 65,000 a month',
     type: 'Full-time',
     description: 'Manage recruitment pipelines, onboarding, and employee records.',
-    responsibilities: ['Coordinate candidate interviews', 'Administer payroll documentation', 'Enforce workplace policies'],
+    responsibilities: [
+      'Coordinate candidate interviews',
+      'Administer payroll documentation',
+      'Enforce workplace policies',
+    ],
   },
   {
     id: '6',
@@ -81,7 +98,11 @@ const FIGMA_JOBS: JobSummary[] = [
     salary: 'Rs 75,000 - Rs 85,000 a month',
     type: 'Full-time',
     description: 'Extract business insights and build operational dashboards.',
-    responsibilities: ['Write SQL queries and ETL scripts', 'Build PowerBI/Tableau dashboards', 'Present reports to leadership'],
+    responsibilities: [
+      'Write SQL queries and ETL scripts',
+      'Build PowerBI/Tableau dashboards',
+      'Present reports to leadership',
+    ],
   },
   {
     id: '7',
@@ -91,7 +112,11 @@ const FIGMA_JOBS: JobSummary[] = [
     salary: 'Rs 40,000 - Rs 50,000 a month',
     type: 'Full-time',
     description: 'Draft website copy, articles, and corporate newsletters.',
-    responsibilities: ['Write SEO-optimized blog posts', 'Proofread marketing communications', 'Conduct market research'],
+    responsibilities: [
+      'Write SEO-optimized blog posts',
+      'Proofread marketing communications',
+      'Conduct market research',
+    ],
   },
   {
     id: '8',
@@ -101,7 +126,11 @@ const FIGMA_JOBS: JobSummary[] = [
     salary: 'Rs 130,000 - Rs 150,000 a month',
     type: 'Full-time',
     description: 'Oversee corporate and vocational infrastructure rollout milestones.',
-    responsibilities: ['Manage cross-functional project deliverables', 'Track timelines and resource allocations', 'Manage client communications'],
+    responsibilities: [
+      'Manage cross-functional project deliverables',
+      'Track timelines and resource allocations',
+      'Manage client communications',
+    ],
   },
 ];
 

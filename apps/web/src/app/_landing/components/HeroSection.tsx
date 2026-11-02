@@ -7,7 +7,7 @@ import { HeroGraphicCard } from './HeroGraphicCard';
 
 export function HeroSection() {
   return (
-    <section className="bg-[#F9F9F9] pt-12 pb-16 lg:pt-20 lg:pb-24 overflow-hidden">
+    <section className="overflow-hidden bg-[#F9F9F9] pt-12 pb-16 lg:pt-20 lg:pb-24">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
           {/* Left Column with stagger animation */}
@@ -21,7 +21,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-4xl font-semibold tracking-tight text-black sm:text-5xl lg:text-[54px] leading-[1.18]"
+              className="text-4xl leading-[1.18] font-semibold tracking-tight text-black sm:text-5xl lg:text-[54px]"
             >
               Connecting skilled people with the jobs that need them.
             </motion.h1>
@@ -30,7 +30,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="mt-5 max-w-xl text-base font-medium text-black/90 leading-relaxed"
+              className="mt-5 max-w-xl text-base leading-relaxed font-medium text-black/90"
             >
               Register, get your skills assessed, and be matched with employers who are hiring
             </motion.p>
@@ -52,7 +52,9 @@ export function HeroSection() {
               className="mt-14 border-t border-gray-200/70 pt-6"
             >
               <p className="text-2xl font-normal text-black">Our partners</p>
-              <p className="text-lg font-normal text-black mt-1">The companies we've helped succeed</p>
+              <p className="mt-1 text-lg font-normal text-black">
+                The companies we've helped succeed
+              </p>
               <div className="mt-5 flex items-center gap-8 opacity-85">
                 <motion.div whileHover={{ scale: 1.08 }} transition={{ duration: 0.2 }}>
                   <Image
@@ -60,7 +62,7 @@ export function HeroSection() {
                     alt="Partner Logo 1"
                     width={82}
                     height={82}
-                    className="h-10 w-auto object-contain cursor-pointer"
+                    className="h-10 w-auto cursor-pointer object-contain"
                   />
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.08 }} transition={{ duration: 0.2 }}>
@@ -69,7 +71,7 @@ export function HeroSection() {
                     alt="Partner Logo 2"
                     width={195}
                     height={61}
-                    className="h-9 w-auto object-contain cursor-pointer"
+                    className="h-9 w-auto cursor-pointer object-contain"
                   />
                 </motion.div>
               </div>

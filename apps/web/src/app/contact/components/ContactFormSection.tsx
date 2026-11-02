@@ -17,7 +17,7 @@ export function ContactFormSection() {
                 <input
                   type="text"
                   placeholder="Enter your full name"
-                  className="mt-2 w-full rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-base text-black placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black"
+                  className="mt-2 w-full rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-base text-black placeholder:text-gray-400 focus:ring-1 focus:ring-black focus:outline-none"
                 />
               </div>
 
@@ -26,13 +26,13 @@ export function ContactFormSection() {
                 <input
                   type="email"
                   placeholder="Enter your Email address"
-                  className="mt-2 w-full rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-base text-black placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black"
+                  className="mt-2 w-full rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-base text-black placeholder:text-gray-400 focus:ring-1 focus:ring-black focus:outline-none"
                 />
               </div>
 
               <div>
                 <label className="text-lg font-medium text-black">I am a</label>
-                <select className="mt-2 w-full rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-base text-black focus:outline-none focus:ring-1 focus:ring-black cursor-pointer">
+                <select className="mt-2 w-full cursor-pointer rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-base text-black focus:ring-1 focus:ring-black focus:outline-none">
                   <option>Select the desired occupation</option>
                   <option>Job Seeker</option>
                   <option>Employer / Hiring Partner</option>
@@ -45,7 +45,7 @@ export function ContactFormSection() {
                 <input
                   type="text"
                   placeholder="Enter the subject"
-                  className="mt-2 w-full rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-base text-black placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black"
+                  className="mt-2 w-full rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-base text-black placeholder:text-gray-400 focus:ring-1 focus:ring-black focus:outline-none"
                 />
               </div>
 
@@ -54,7 +54,7 @@ export function ContactFormSection() {
                 <textarea
                   rows={4}
                   placeholder="Please provide a detailed description of your message here..."
-                  className="mt-2 w-full rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-base text-black placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black resize-none"
+                  className="mt-2 w-full resize-none rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-base text-black placeholder:text-gray-400 focus:ring-1 focus:ring-black focus:outline-none"
                 />
               </div>
 
@@ -68,33 +68,35 @@ export function ContactFormSection() {
           </div>
 
           {/* Right Column: Sticky Saylani Job Bank Info */}
-          <div className="flex flex-col justify-between rounded-3xl border border-gray-100 bg-white p-8 shadow-sm sm:p-10 lg:col-span-6 lg:sticky lg:top-24">
+          <div className="flex flex-col justify-between rounded-3xl border border-gray-100 bg-white p-8 shadow-sm sm:p-10 lg:sticky lg:top-24 lg:col-span-6">
             <div>
               <h2 className="text-2xl font-normal text-black sm:text-[36px]">
                 Saylani Job Bank Info
               </h2>
-              <p className="mt-3 text-base font-medium text-black/80 leading-relaxed">
+              <p className="mt-3 text-base leading-relaxed font-medium text-black/80">
                 A trusted employment platform by{' '}
-                <span className="text-[#8CC641] font-semibold">Saylani Welfare Trust</span>, helping
+                <span className="font-semibold text-[#8CC641]">Saylani Welfare Trust</span>, helping
                 people find better opportunities and building a stronger future.
               </p>
 
               <div className="mt-8 space-y-4 border-t border-gray-100 pt-6 text-base text-black/80">
                 <div>
                   <p className="font-semibold text-black">Main Branch (Karachi)</p>
-                  <p className="text-gray-600 mt-0.5">A 169, Block 3, Clifton, Karachi, Pakistan</p>
+                  <p className="mt-0.5 text-gray-600">A 169, Block 3, Clifton, Karachi, Pakistan</p>
                 </div>
                 <div>
                   <p className="font-semibold text-black">Opening Hours</p>
-                  <p className="text-gray-600 mt-0.5">Mon - Sat | 9:00 AM - 5:00 PM</p>
+                  <p className="mt-0.5 text-gray-600">Mon - Sat | 9:00 AM - 5:00 PM</p>
                 </div>
                 <div>
                   <p className="font-semibold text-black">Helpline Numbers</p>
-                  <p className="text-gray-600 mt-0.5">+92 300 846 4772 &nbsp; · &nbsp; +92 21 111 729 526</p>
+                  <p className="mt-0.5 text-gray-600">
+                    +92 300 846 4772 &nbsp; · &nbsp; +92 21 111 729 526
+                  </p>
                 </div>
                 <div>
                   <p className="font-semibold text-black">Official Email</p>
-                  <p className="text-gray-600 mt-0.5">info@saylanijobbank.org</p>
+                  <p className="mt-0.5 text-gray-600">info@saylanijobbank.org</p>
                 </div>
               </div>
             </div>

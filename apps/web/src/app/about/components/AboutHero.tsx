@@ -6,7 +6,7 @@ import NextLink from 'next/link';
 
 export function AboutHero() {
   return (
-    <section className="bg-[#F9F9F9] pt-12 pb-16 lg:pt-20 lg:pb-24 overflow-hidden">
+    <section className="overflow-hidden bg-[#F9F9F9] pt-12 pb-16 lg:pt-20 lg:pb-24">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -16,15 +16,16 @@ export function AboutHero() {
         >
           {/* Left Title */}
           <div className="max-w-xl">
-            <h1 className="text-4xl font-semibold tracking-tight text-black sm:text-5xl lg:text-[54px] leading-tight">
+            <h1 className="text-4xl leading-tight font-semibold tracking-tight text-black sm:text-5xl lg:text-[54px]">
               Every skill deserves a job.
             </h1>
           </div>
 
           {/* Right Subtitle & Buttons */}
           <div className="max-w-md">
-            <p className="text-base font-medium text-black/85 leading-relaxed">
-              Saylani Job Bank is a free service of Saylani Welfare International Trust. We connect skilled people with employers who are hiring, at zero cost.
+            <p className="text-base leading-relaxed font-medium text-black/85">
+              Saylani Job Bank is a free service of Saylani Welfare International Trust. We connect
+              skilled people with employers who are hiring, at zero cost.
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -55,7 +56,7 @@ export function AboutHero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.2 }}
           whileHover={{ y: -4 }}
-          className="mt-12 overflow-hidden rounded-[32px] border border-gray-200/80 bg-neutral-900 shadow-xl transition-shadow hover:shadow-2xl cursor-pointer"
+          className="mt-12 cursor-pointer overflow-hidden rounded-[32px] border border-gray-200/80 bg-neutral-900 shadow-xl transition-shadow hover:shadow-2xl"
         >
           <div className="relative aspect-[21/8.5] w-full">
             <Image

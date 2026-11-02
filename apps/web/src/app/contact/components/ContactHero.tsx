@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export function ContactHero() {
   return (
-    <section className="bg-white pt-12 pb-16 lg:pt-20 lg:pb-24 border-b border-gray-100 overflow-hidden">
+    <section className="overflow-hidden border-b border-gray-100 bg-white pt-12 pb-16 lg:pt-20 lg:pb-24">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -14,14 +14,15 @@ export function ContactHero() {
           className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between"
         >
           <div className="max-w-xl">
-            <h1 className="text-4xl font-bold tracking-tight text-black sm:text-5xl lg:text-[58px] leading-tight">
+            <h1 className="text-4xl leading-tight font-bold tracking-tight text-black sm:text-5xl lg:text-[58px]">
               We&apos;re Here to Help.
             </h1>
           </div>
 
           <div className="max-w-md">
-            <p className="text-base font-medium text-black/80 leading-relaxed">
-              Have a question, need assistance, or want to connect with our team? Reach out to us through any of the channels below.
+            <p className="text-base leading-relaxed font-medium text-black/80">
+              Have a question, need assistance, or want to connect with our team? Reach out to us
+              through any of the channels below.
             </p>
 
             <div className="mt-6">
@@ -43,7 +44,7 @@ export function ContactHero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.2 }}
           whileHover={{ y: -4 }}
-          className="mt-12 overflow-hidden rounded-[32px] border border-gray-200/80 bg-neutral-900 shadow-xl transition-shadow hover:shadow-2xl cursor-pointer"
+          className="mt-12 cursor-pointer overflow-hidden rounded-[32px] border border-gray-200/80 bg-neutral-900 shadow-xl transition-shadow hover:shadow-2xl"
         >
           <div className="relative aspect-[21/8.5] w-full">
             <Image

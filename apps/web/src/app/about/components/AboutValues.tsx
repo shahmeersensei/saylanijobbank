@@ -32,7 +32,7 @@ const SERVICES = [
 
 export function AboutValues() {
   return (
-    <section className="bg-white py-16 sm:py-24 overflow-hidden">
+    <section className="overflow-hidden bg-white py-16 sm:py-24">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -41,7 +41,9 @@ export function AboutValues() {
           transition={{ duration: 0.6 }}
           className="mx-auto max-w-2xl text-center"
         >
-          <h2 className="text-3xl font-semibold text-black sm:text-[32px]">What the Job Bank does</h2>
+          <h2 className="text-3xl font-semibold text-black sm:text-[32px]">
+            What the Job Bank does
+          </h2>
           <p className="mt-3 text-base font-medium text-black/80">
             Four services, working together to get people into steady work.
           </p>
@@ -58,13 +60,13 @@ export function AboutValues() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 whileHover={{ y: -6 }}
-                className="rounded-2xl border border-gray-100 bg-[#F9F9F9] p-6 shadow-xs transition-shadow hover:bg-white hover:border-gray-300 hover:shadow-md cursor-pointer"
+                className="cursor-pointer rounded-2xl border border-gray-100 bg-[#F9F9F9] p-6 shadow-xs transition-shadow hover:border-gray-300 hover:bg-white hover:shadow-md"
               >
                 <div className="flex size-11 items-center justify-center rounded-xl bg-white shadow-xs">
                   <Icon className={`size-5 ${s.color}`} />
                 </div>
                 <h3 className="mt-5 text-[21px] font-semibold text-black">{s.title}</h3>
-                <p className="mt-2 text-base font-normal text-black/75 leading-relaxed">{s.desc}</p>
+                <p className="mt-2 text-base leading-relaxed font-normal text-black/75">{s.desc}</p>
               </motion.div>
             );
           })}

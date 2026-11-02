@@ -25,9 +25,9 @@ export function Footer() {
             <NextLink href="/" className="inline-block transition-opacity hover:opacity-90">
               <BrandMark />
             </NextLink>
-            <p className="mt-4 max-w-sm text-base text-black/80 leading-relaxed">
-              A free employment service of Saylani Welfare International Trust, connecting skilled people
-              with employers.
+            <p className="mt-4 max-w-sm text-base leading-relaxed text-black/80">
+              A free employment service of Saylani Welfare International Trust, connecting skilled
+              people with employers.
             </p>
             <div className="mt-6">
               <a
@@ -47,7 +47,10 @@ export function Footer() {
             <ul className="mt-4 space-y-3 text-base">
               {exploreLinks.map((l) => (
                 <li key={l.label}>
-                  <NextLink href={l.href} className="inline-block text-black/80 hover:text-[#8CC641] hover:translate-x-1 transition-all duration-200">
+                  <NextLink
+                    href={l.href}
+                    className="inline-block text-black/80 transition-all duration-200 hover:translate-x-1 hover:text-[#8CC641]"
+                  >
                     {l.label}
                   </NextLink>
                 </li>
@@ -61,7 +64,10 @@ export function Footer() {
             <ul className="mt-4 space-y-3 text-base">
               {forYouLinks.map((l) => (
                 <li key={l.label}>
-                  <NextLink href={l.href} className="inline-block text-black/80 hover:text-[#8CC641] hover:translate-x-1 transition-all duration-200">
+                  <NextLink
+                    href={l.href}
+                    className="inline-block text-black/80 transition-all duration-200 hover:translate-x-1 hover:text-[#8CC641]"
+                  >
                     {l.label}
                   </NextLink>
                 </li>
@@ -74,15 +80,15 @@ export function Footer() {
             <h3 className="text-lg font-semibold text-black">Contact</h3>
             <ul className="mt-4 space-y-3 text-base text-black/80">
               <li className="flex items-center gap-2.5">
-                <Phone className="size-4 text-[#8CC641] shrink-0" />
+                <Phone className="size-4 shrink-0 text-[#8CC641]" />
                 <span>+1 (929) 922-6467</span>
               </li>
               <li className="flex items-center gap-2.5">
-                <Mail className="size-4 text-[#8CC641] shrink-0" />
+                <Mail className="size-4 shrink-0 text-[#8CC641]" />
                 <span>info@saylanibank.com</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <MapPin className="size-4 text-[#8CC641] shrink-0 mt-1" />
+                <MapPin className="mt-1 size-4 shrink-0 text-[#8CC641]" />
                 <span className="text-black/70">A-25, off Bahadur Shah Zafar Road.</span>
               </li>
             </ul>
@@ -93,18 +99,21 @@ export function Footer() {
         <div className="mt-14 flex flex-col items-center justify-between border-t border-black/10 pt-6 text-base text-black/80 sm:flex-row">
           <p>© 2025 Saylani Job Bank. All rights reserved.</p>
           <div className="mt-3 flex items-center gap-6 sm:mt-0">
-            <NextLink href="/privacy-policy" className="text-[#65748b] hover:text-black transition-colors">
+            <NextLink
+              href="/privacy-policy"
+              className="text-[#65748b] transition-colors hover:text-black"
+            >
               Privacy Policy
             </NextLink>
-            <NextLink href="/terms" className="text-[#65748b] hover:text-black transition-colors">
+            <NextLink href="/terms" className="text-[#65748b] transition-colors hover:text-black">
               Terms of Use
             </NextLink>
           </div>
         </div>
 
         {/* Giant Green Outline Watermark from Figma */}
-        <div className="pointer-events-none mt-12 select-none text-center overflow-hidden">
-          <span className="text-4xl font-extrabold tracking-wider text-[#8CC641]/15 sm:text-7xl md:text-8xl lg:text-[145px] leading-none uppercase block">
+        <div className="pointer-events-none mt-12 overflow-hidden text-center select-none">
+          <span className="block text-4xl leading-none font-extrabold tracking-wider text-[#8CC641]/15 uppercase sm:text-7xl md:text-8xl lg:text-[145px]">
             SAYLANI JOB BANK
           </span>
         </div>

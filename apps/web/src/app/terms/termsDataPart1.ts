@@ -98,4 +98,3 @@ export const TERMS_PART1: TermsSection[] = [
     ],
   },
 ];
-

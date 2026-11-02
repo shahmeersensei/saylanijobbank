@@ -9,8 +9,9 @@ export function ContactSupportCards() {
           {/* Applicant Support */}
           <div className="rounded-3xl border border-gray-100 bg-white p-8 shadow-xs">
             <h3 className="text-2xl font-normal text-black sm:text-[32px]">Applicant Support</h3>
-            <p className="mt-2 text-base font-medium text-black/80 leading-relaxed">
-              Need help with your profile, documents, or job application? We&apos;re here to guide you.
+            <p className="mt-2 text-base leading-relaxed font-medium text-black/80">
+              Need help with your profile, documents, or job application? We&apos;re here to guide
+              you.
             </p>
             <div className="mt-6">
               <NextLink
@@ -26,8 +27,9 @@ export function ContactSupportCards() {
           {/* Employer Support */}
           <div className="rounded-3xl border border-gray-100 bg-white p-8 shadow-xs">
             <h3 className="text-2xl font-normal text-black sm:text-[32px]">Employer Support</h3>
-            <p className="mt-2 text-base font-medium text-black/80 leading-relaxed">
-              Need help with your profile, documents, or job application? We&apos;re here to guide you.
+            <p className="mt-2 text-base leading-relaxed font-medium text-black/80">
+              Need help with your profile, documents, or job application? We&apos;re here to guide
+              you.
             </p>
             <div className="mt-6">
               <NextLink

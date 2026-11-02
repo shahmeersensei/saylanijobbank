@@ -45,7 +45,7 @@ export function JobCard({
         {/* Header: Company & Bookmark */}
         <div className="flex items-start justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="flex size-11 items-center justify-center rounded-xl bg-gray-50 border border-gray-100 text-[var(--primary)]">
+            <div className="flex size-11 items-center justify-center rounded-xl border border-gray-100 bg-gray-50 text-[var(--primary)]">
               <Building2 className="size-5" />
             </div>
             <div>
@@ -104,4 +104,3 @@ export function JobCard({
     </div>
   );
 }
-

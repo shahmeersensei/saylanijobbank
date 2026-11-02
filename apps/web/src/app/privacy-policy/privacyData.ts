@@ -15,7 +15,9 @@ export const PRIVACY_SECTIONS: PrivacySection[] = [
   },
   {
     title: 'Information We Collect',
-    paragraphs: ['We may collect the following categories of information, depending on how you use our platform.'],
+    paragraphs: [
+      'We may collect the following categories of information, depending on how you use our platform.',
+    ],
     subsections: [
       {
         title: 'A. Job Applicants',

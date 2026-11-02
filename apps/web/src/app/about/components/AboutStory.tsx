@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export function AboutStory() {
   return (
-    <section className="bg-[#F9F9F9] py-16 sm:py-24 overflow-hidden">
+    <section className="overflow-hidden bg-[#F9F9F9] py-16 sm:py-24">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
         {/* Mission Statement Quote Banner from Figma */}
         <motion.div
@@ -16,12 +16,13 @@ export function AboutStory() {
           transition={{ duration: 0.7 }}
           className="mx-auto max-w-[1050px] text-center"
         >
-          <h2 className="text-2xl font-normal text-black sm:text-3xl lg:text-[48px] leading-tight">
-            We exist to Reduce unemployment by matching Skilled people with the Employers who are hiring — at zero cost.
+          <h2 className="text-2xl leading-tight font-normal text-black sm:text-3xl lg:text-[48px]">
+            We exist to Reduce unemployment by matching Skilled people with the Employers who are
+            hiring — at zero cost.
             <motion.span
               whileHover={{ rotate: 15, scale: 1.15 }}
               transition={{ type: 'spring', stiffness: 300 }}
-              className="inline-flex ml-3 align-middle cursor-pointer"
+              className="ml-3 inline-flex cursor-pointer align-middle"
             >
               <Handshake className="size-9 text-[#8CC641]" />
             </motion.span>
@@ -38,13 +39,13 @@ export function AboutStory() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-6"
           >
-            <h3 className="text-3xl font-semibold text-black leading-tight sm:text-[32px]">
+            <h3 className="text-3xl leading-tight font-semibold text-black sm:text-[32px]">
               A service of Saylani Welfare International Trust
             </h3>
-            <p className="mt-5 text-base font-medium text-black/80 leading-relaxed">
-              The Job Bank is part of Saylani Welfare’s social welfare work, helping people move from need
-              toward a steady livelihood. Where the Trust provides relief, the Job Bank provides a way
-              forward.
+            <p className="mt-5 text-base leading-relaxed font-medium text-black/80">
+              The Job Bank is part of Saylani Welfare’s social welfare work, helping people move
+              from need toward a steady livelihood. Where the Trust provides relief, the Job Bank
+              provides a way forward.
             </p>
 
             <div className="mt-8">

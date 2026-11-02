@@ -15,7 +15,10 @@ interface LandingPageProps {
   dashboardHref?: string;
 }
 
-export default function LandingPage({ signedIn = false, dashboardHref = '/login' }: LandingPageProps) {
+export default function LandingPage({
+  signedIn = false,
+  dashboardHref = '/login',
+}: LandingPageProps) {
   return (
     <div className="min-h-screen bg-[#F9F9F9] text-[#000000]">
       {/* 1. Master Navbar */}

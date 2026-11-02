@@ -6,12 +6,54 @@ import NextLink from 'next/link';
 import { useState } from 'react';
 
 const OPENINGS = [
-  { id: '1', title: 'Accounts Assistant', tags: ['Karachi', 'Full time', '1-2 years'], salary: 'PKR 50000–100000', period: 'per month', category: 'Office and admin' },
-  { id: '2', title: 'Customer Support Executive', tags: ['Lahore', 'Full time', 'Fresh graduates welcome'], salary: 'PKR 60000–120000', period: 'per month', category: 'Sales and support' },
-  { id: '3', title: 'Commercial Electrician', tags: ['Karachi', 'Contract', 'Trade certificate'], salary: 'PKR 55000–110000', period: 'per month', category: 'Technical trades' },
-  { id: '4', title: 'Data Entry Operator', tags: ['Islamabad', 'Full time', 'Typing skills'], salary: 'PKR 65000–130000', period: 'per month', category: 'Office and admin' },
-  { id: '5', title: 'Graphic Designer', tags: ['Lahore', 'Full time', '2-3 years'], salary: 'PKR 70000–140000', period: 'per month', category: 'IT' },
-  { id: '6', title: 'Digital Marketing Specialist', tags: ['Islamabad', 'Remote', 'Experience with SEO and SEM'], salary: 'PKR 80000–160000', period: 'per month', category: 'IT' },
+  {
+    id: '1',
+    title: 'Accounts Assistant',
+    tags: ['Karachi', 'Full time', '1-2 years'],
+    salary: 'PKR 50000–100000',
+    period: 'per month',
+    category: 'Office and admin',
+  },
+  {
+    id: '2',
+    title: 'Customer Support Executive',
+    tags: ['Lahore', 'Full time', 'Fresh graduates welcome'],
+    salary: 'PKR 60000–120000',
+    period: 'per month',
+    category: 'Sales and support',
+  },
+  {
+    id: '3',
+    title: 'Commercial Electrician',
+    tags: ['Karachi', 'Contract', 'Trade certificate'],
+    salary: 'PKR 55000–110000',
+    period: 'per month',
+    category: 'Technical trades',
+  },
+  {
+    id: '4',
+    title: 'Data Entry Operator',
+    tags: ['Islamabad', 'Full time', 'Typing skills'],
+    salary: 'PKR 65000–130000',
+    period: 'per month',
+    category: 'Office and admin',
+  },
+  {
+    id: '5',
+    title: 'Graphic Designer',
+    tags: ['Lahore', 'Full time', '2-3 years'],
+    salary: 'PKR 70000–140000',
+    period: 'per month',
+    category: 'IT',
+  },
+  {
+    id: '6',
+    title: 'Digital Marketing Specialist',
+    tags: ['Islamabad', 'Remote', 'Experience with SEO and SEM'],
+    salary: 'PKR 80000–160000',
+    period: 'per month',
+    category: 'IT',
+  },
 ];
 
 const TABS = ['All roles', 'Office and admin', 'Technical trades', 'IT', 'Sales and support'];
@@ -27,10 +69,12 @@ export function LatestOpeningsSection() {
   });
 
   return (
-    <section className="bg-white py-16 sm:py-24 overflow-hidden">
+    <section className="overflow-hidden bg-white py-16 sm:py-24">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
         <div>
-          <h2 className="text-3xl font-semibold tracking-tight text-black sm:text-[32px]">Latest openings</h2>
+          <h2 className="text-3xl font-semibold tracking-tight text-black sm:text-[32px]">
+            Latest openings
+          </h2>
           <p className="mt-2 text-base font-medium text-black/80">
             Roles posted by employers across different industries and skill levels.
           </p>
@@ -84,7 +128,7 @@ export function LatestOpeningsSection() {
                 exit={{ opacity: 0, scale: 0.98 }}
                 transition={{ duration: 0.25 }}
                 whileHover={{ y: -2, x: 4 }}
-                className="flex flex-col justify-between gap-4 rounded-2xl border border-gray-100 bg-[#F9F9F9] p-6 transition-shadow hover:bg-white hover:border-gray-300 hover:shadow-md sm:flex-row sm:items-center cursor-pointer"
+                className="flex cursor-pointer flex-col justify-between gap-4 rounded-2xl border border-gray-100 bg-[#F9F9F9] p-6 transition-shadow hover:border-gray-300 hover:bg-white hover:shadow-md sm:flex-row sm:items-center"
               >
                 <div>
                   <h3 className="text-2xl font-normal text-black">{job.title}</h3>
@@ -92,7 +136,7 @@ export function LatestOpeningsSection() {
                     {job.tags.map((t) => (
                       <span
                         key={t}
-                        className="rounded-full bg-white px-3.5 py-1 text-sm font-normal text-black border border-gray-100"
+                        className="rounded-full border border-gray-100 bg-white px-3.5 py-1 text-sm font-normal text-black"
                       >
                         {t}
                       </span>
@@ -113,7 +157,7 @@ export function LatestOpeningsSection() {
         <div className="mt-10 text-center">
           <NextLink
             href="/jobs"
-            className="inline-flex items-center gap-2 rounded-full bg-[#8CC641] px-8 py-3.5 text-base font-medium text-white shadow-sm transition-all hover:bg-[#7CB337] hover:gap-3"
+            className="inline-flex items-center gap-2 rounded-full bg-[#8CC641] px-8 py-3.5 text-base font-medium text-white shadow-sm transition-all hover:gap-3 hover:bg-[#7CB337]"
           >
             View all openings
             <ArrowRight className="size-4" />

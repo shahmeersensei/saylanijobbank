@@ -9,7 +9,8 @@ import { ContactSupportCards } from './components/ContactSupportCards';
 
 export const metadata: Metadata = {
   title: 'Contact Us',
-  description: 'Saylani Job Bank - We’re Here to Help. Contact our Karachi Clifton branch and nationwide support team.',
+  description:
+    'Saylani Job Bank - We’re Here to Help. Contact our Karachi Clifton branch and nationwide support team.',
 };
 
 export default function ContactPage() {

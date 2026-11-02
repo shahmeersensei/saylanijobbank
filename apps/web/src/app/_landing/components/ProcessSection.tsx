@@ -32,24 +32,22 @@ const STEPS = [
 
 export function ProcessSection() {
   return (
-    <section className="bg-[#F9F9F9] py-16 sm:py-24 overflow-hidden">
+    <section className="overflow-hidden bg-[#F9F9F9] py-16 sm:py-24">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto"
+          className="mx-auto max-w-2xl text-center"
         >
-          <span className="text-base font-normal text-[#8CC641]">
-            Process
-          </span>
-          <h2 className="mt-2 text-3xl font-semibold text-black sm:text-[32px] leading-tight">
+          <span className="text-base font-normal text-[#8CC641]">Process</span>
+          <h2 className="mt-2 text-3xl leading-tight font-semibold text-black sm:text-[32px]">
             How the Job Bank takes you from registration to a job
           </h2>
           <p className="mt-3 text-base font-medium text-black/80">
-            Four simple steps for job seekers and for employers. Every candidate is assessed, every match
-            is checked, and no fees are charged at any stage.
+            Four simple steps for job seekers and for employers. Every candidate is assessed, every
+            match is checked, and no fees are charged at any stage.
           </p>
         </motion.div>
 
@@ -64,7 +62,7 @@ export function ProcessSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 whileHover={{ x: 6 }}
-                className="flex items-start gap-4 rounded-2xl bg-white p-6 border border-gray-100 shadow-xs cursor-pointer transition-all hover:border-black/20 hover:shadow-md"
+                className="flex cursor-pointer items-start gap-4 rounded-2xl border border-gray-100 bg-white p-6 shadow-xs transition-all hover:border-black/20 hover:shadow-md"
               >
                 <div
                   className={`flex size-8 shrink-0 items-center justify-center rounded-full text-sm font-medium ${
@@ -75,7 +73,7 @@ export function ProcessSection() {
                 </div>
                 <div>
                   <h3 className="text-xl font-medium text-black">{s.title}</h3>
-                  <p className="mt-1 text-sm font-normal text-black/70 leading-relaxed">{s.desc}</p>
+                  <p className="mt-1 text-sm leading-relaxed font-normal text-black/70">{s.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -111,7 +109,7 @@ export function ProcessSection() {
                     type="password"
                     readOnly
                     value="••••••••••••"
-                    className="mt-2 w-full rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-base font-normal text-black tracking-widest focus:outline-none"
+                    className="mt-2 w-full rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-base font-normal tracking-widest text-black focus:outline-none"
                   />
                 </div>
 

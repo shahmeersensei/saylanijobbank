@@ -12,7 +12,8 @@ import { AboutValues } from './components/AboutValues';
 
 export const metadata: Metadata = {
   title: 'About Us',
-  description: 'Saylani Job Bank - Every skill deserves a job. A service of Saylani Welfare International Trust.',
+  description:
+    'Saylani Job Bank - Every skill deserves a job. A service of Saylani Welfare International Trust.',
 };
 
 export default function AboutPage() {

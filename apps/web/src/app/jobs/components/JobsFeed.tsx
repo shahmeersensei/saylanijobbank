@@ -19,7 +19,7 @@ interface JobsFeedProps {
 
 export function JobsFeed({ jobs, selectedId, onSelect }: JobsFeedProps) {
   return (
-    <div className="w-full lg:w-[400px] shrink-0 space-y-3">
+    <div className="w-full shrink-0 space-y-3 lg:w-[400px]">
       {jobs.map((job) => {
         const isSelected = selectedId === job.id;
         return (
@@ -36,12 +36,13 @@ export function JobsFeed({ jobs, selectedId, onSelect }: JobsFeedProps) {
               <div>
                 <h3 className="text-xl font-normal text-black">{job.title}</h3>
                 <p className="mt-1 text-sm text-black/70">
-                  {job.company ? `${job.company} · ` : ''}{job.location}
+                  {job.company ? `${job.company} · ` : ''}
+                  {job.location}
                 </p>
               </div>
               <button
                 type="button"
-                className="text-gray-400 hover:text-black p-1"
+                className="p-1 text-gray-400 hover:text-black"
                 aria-label="Bookmark"
                 onClick={(e) => e.stopPropagation()}
               >

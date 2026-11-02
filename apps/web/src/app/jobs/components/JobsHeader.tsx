@@ -14,19 +14,20 @@ export function JobsHeader({
   setSelectedCity,
 }: JobsHeaderProps) {
   return (
-    <section className="bg-white py-12 lg:py-16 border-b border-gray-100">
+    <section className="border-b border-gray-100 bg-white py-12 lg:py-16">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
-          <h1 className="text-4xl font-bold tracking-tight text-black sm:text-5xl lg:text-[58px] leading-tight">
+          <h1 className="text-4xl leading-tight font-bold tracking-tight text-black sm:text-5xl lg:text-[58px]">
             Search latest job posts on Saylani Job Bank
           </h1>
-          <p className="mt-4 text-base font-medium text-black/80 leading-relaxed">
-            Have a question, need assistance, or want to connect with our team? Reach out to us through any of the channels below.
+          <p className="mt-4 text-base leading-relaxed font-medium text-black/80">
+            Have a question, need assistance, or want to connect with our team? Reach out to us
+            through any of the channels below.
           </p>
         </div>
 
         {/* Search Capsule matching Figma */}
-        <div className="mt-8 flex flex-col gap-2 rounded-2xl bg-white p-2 shadow-xl border border-gray-100 sm:flex-row sm:items-center sm:rounded-full max-w-xl">
+        <div className="mt-8 flex max-w-xl flex-col gap-2 rounded-2xl border border-gray-100 bg-white p-2 shadow-xl sm:flex-row sm:items-center sm:rounded-full">
           <div className="flex flex-1 items-center gap-3 px-4 py-2">
             <Search className="size-5 text-gray-400" />
             <input
@@ -41,11 +42,11 @@ export function JobsHeader({
           <div className="hidden h-6 w-px bg-gray-200 sm:block" />
 
           <div className="flex items-center px-4 py-2">
-            <MapPin className="size-5 text-gray-400 mr-2" />
+            <MapPin className="mr-2 size-5 text-gray-400" />
             <select
               value={selectedCity}
               onChange={(e) => setSelectedCity(e.target.value)}
-              className="bg-transparent text-base font-medium text-black focus:outline-none cursor-pointer"
+              className="cursor-pointer bg-transparent text-base font-medium text-black focus:outline-none"
             >
               <option value="All cities">All cities</option>
               <option value="Karachi">Karachi</option>
@@ -60,7 +61,7 @@ export function JobsHeader({
 
           <button
             type="button"
-            className="rounded-full bg-black px-7 py-3 text-base font-medium text-white transition-all hover:bg-neutral-800 shadow-sm"
+            className="rounded-full bg-black px-7 py-3 text-base font-medium text-white shadow-sm transition-all hover:bg-neutral-800"
           >
             Search jobs
           </button>

@@ -11,23 +11,23 @@ interface CTABannerProps {
 
 export function CTABanner({ className }: CTABannerProps) {
   return (
-    <section className={cn('py-12 sm:py-16 lg:py-20 overflow-hidden', className)}>
+    <section className={cn('overflow-hidden py-12 sm:py-16 lg:py-20', className)}>
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="relative overflow-hidden rounded-[36px] bg-gradient-to-r from-[#8CC641] via-[#85C03B] to-[#72A830] px-8 pt-8 sm:px-12 sm:pt-12 lg:px-14 lg:pt-14 text-white shadow-xl"
+          className="relative overflow-hidden rounded-[36px] bg-gradient-to-r from-[#8CC641] via-[#85C03B] to-[#72A830] px-8 pt-8 text-white shadow-xl sm:px-12 sm:pt-12 lg:px-14 lg:pt-14"
         >
           <div className="grid grid-cols-1 items-end gap-6 lg:grid-cols-12">
             {/* Left Content */}
             <div className="pb-8 sm:pb-12 lg:col-span-7">
-              <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-[54px] leading-tight text-white">
+              <h2 className="text-3xl leading-tight font-semibold tracking-tight text-white sm:text-4xl lg:text-[54px]">
                 Find your next job or great hire at the Job Bank.
               </h2>
 
-              <p className="mt-4 max-w-xl text-base font-medium text-white leading-relaxed">
+              <p className="mt-4 max-w-xl text-base leading-relaxed font-medium text-white">
                 Job seekers can register for free and get matched with employers who are hiring.
               </p>
 
@@ -59,7 +59,7 @@ export function CTABanner({ className }: CTABannerProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: 0.2 }}
-                className="relative h-[280px] sm:h-[360px] w-[260px] sm:w-[326px]"
+                className="relative h-[280px] w-[260px] sm:h-[360px] sm:w-[326px]"
               >
                 <Image
                   src="/assets/cta-graduate.png"

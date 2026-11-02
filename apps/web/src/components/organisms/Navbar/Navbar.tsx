@@ -35,7 +35,9 @@ export function Navbar({ signedIn = false, dashboardHref = '/login', className }
     <header
       className={cn(
         'sticky top-0 z-50 h-[70px] w-full transition-all duration-300',
-        scrolled ? 'bg-white/90 backdrop-blur-md shadow-xs border-b border-gray-200/80' : 'bg-white/95 backdrop-blur-sm border-b border-gray-100',
+        scrolled
+          ? 'border-b border-gray-200/80 bg-white/90 shadow-xs backdrop-blur-md'
+          : 'border-b border-gray-100 bg-white/95 backdrop-blur-sm',
         className,
       )}
     >
@@ -54,11 +56,15 @@ export function Navbar({ signedIn = false, dashboardHref = '/login', className }
                 href={link.href}
                 className={cn(
                   'relative py-1 text-base transition-colors duration-200',
-                  isActive ? 'font-semibold text-[#8CC641]' : 'font-normal text-black/80 hover:text-black',
+                  isActive
+                    ? 'font-semibold text-[#8CC641]'
+                    : 'font-normal text-black/80 hover:text-black',
                 )}
               >
                 {link.label}
-                {isActive && <span className="absolute bottom-[-5px] left-0 right-0 h-[2.5px] rounded-full bg-[#8CC641]" />}
+                {isActive && (
+                  <span className="absolute right-0 bottom-[-5px] left-0 h-[2.5px] rounded-full bg-[#8CC641]" />
+                )}
               </NextLink>
             );
           })}
@@ -115,18 +121,28 @@ export function Navbar({ signedIn = false, dashboardHref = '/login', className }
                   onClick={() => setMobileMenuOpen(false)}
                   className={cn(
                     'rounded-xl px-4 py-2.5 text-base transition-all',
-                    isActive ? 'bg-[#8CC641]/10 font-semibold text-[#8CC641]' : 'text-black/80 hover:bg-gray-50',
+                    isActive
+                      ? 'bg-[#8CC641]/10 font-semibold text-[#8CC641]'
+                      : 'text-black/80 hover:bg-gray-50',
                   )}
                 >
                   {link.label}
                 </NextLink>
               );
             })}
-            <div className="mt-3 flex flex-col gap-2 pt-3 border-t border-gray-100">
-              <NextLink href="/jobs" onClick={() => setMobileMenuOpen(false)} className="w-full text-center rounded-full bg-[#8CC641] py-3 text-base font-medium text-white shadow-sm">
+            <div className="mt-3 flex flex-col gap-2 border-t border-gray-100 pt-3">
+              <NextLink
+                href="/jobs"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full rounded-full bg-[#8CC641] py-3 text-center text-base font-medium text-white shadow-sm"
+              >
                 Find a Job
               </NextLink>
-              <NextLink href="/contact" onClick={() => setMobileMenuOpen(false)} className="w-full text-center rounded-full border border-black/30 py-3 text-base font-medium text-black hover:bg-gray-50">
+              <NextLink
+                href="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full rounded-full border border-black/30 py-3 text-center text-base font-medium text-black hover:bg-gray-50"
+              >
                 Hire talent
               </NextLink>
             </div>

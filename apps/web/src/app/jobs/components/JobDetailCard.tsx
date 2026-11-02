@@ -31,14 +31,15 @@ export function JobDetailCard({ job }: JobDetailCardProps) {
           <div>
             <h2 className="text-3xl font-semibold text-black">{job.title}</h2>
             <p className="mt-1 text-base text-black/70">
-              {job.company ? `${job.company} · ` : ''}{job.location}
+              {job.company ? `${job.company} · ` : ''}
+              {job.location}
             </p>
           </div>
 
           <div className="flex items-center gap-2">
             <button
               type="button"
-              className="rounded-full bg-black px-7 py-3 text-base font-medium text-white transition-all hover:bg-neutral-800 shadow-sm"
+              className="rounded-full bg-black px-7 py-3 text-base font-medium text-white shadow-sm transition-all hover:bg-neutral-800"
             >
               Apply now
             </button>
@@ -90,7 +91,7 @@ export function JobDetailCard({ job }: JobDetailCardProps) {
           <ul className="mt-3 space-y-2 text-base text-black/80">
             {job.responsibilities.map((r, i) => (
               <li key={i} className="flex items-start gap-2.5">
-                <span className="text-[#8CC641] font-bold">•</span>
+                <span className="font-bold text-[#8CC641]">•</span>
                 <span className="leading-relaxed">{r}</span>
               </li>
             ))}

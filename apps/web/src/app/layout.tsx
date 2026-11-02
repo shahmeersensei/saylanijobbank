@@ -30,7 +30,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className={`min-h-dvh font-sans antialiased bg-[#F9F9F9] text-[#000000] ${fontSans.className}`}>
+      <body
+        className={`min-h-dvh bg-[#F9F9F9] font-sans text-[#000000] antialiased ${fontSans.className}`}
+      >
         <ThemeProvider>
           {children}
           <Toaster />

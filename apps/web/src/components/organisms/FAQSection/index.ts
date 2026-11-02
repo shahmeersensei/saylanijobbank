@@ -1,2 +1,1 @@
 export { FAQSection } from './FAQSection';
-

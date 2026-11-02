@@ -22,11 +22,11 @@ export default function TermsPage() {
           <div className="mt-16 space-y-14">
             {TERMS_SECTIONS.map((sec) => (
               <div key={sec.title} className="text-left">
-                <h2 className="text-2xl font-semibold text-black sm:text-[32px] leading-snug">
+                <h2 className="text-2xl leading-snug font-semibold text-black sm:text-[32px]">
                   {sec.title}
                 </h2>
 
-                <div className="mt-6 space-y-4 text-lg sm:text-[20px] leading-relaxed text-black/85">
+                <div className="mt-6 space-y-4 text-lg leading-relaxed text-black/85 sm:text-[20px]">
                   {sec.paragraphs.map((p, idx) => (
                     <p key={idx}>{p}</p>
                   ))}

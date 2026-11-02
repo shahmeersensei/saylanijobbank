@@ -1,2 +1,1 @@
 export { CTABanner } from './CTABanner';
-
