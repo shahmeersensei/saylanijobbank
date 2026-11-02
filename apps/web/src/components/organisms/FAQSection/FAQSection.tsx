@@ -32,46 +32,47 @@ const FAQS = [
 ];
 
 export function FAQSection() {
-  const [openIdx, setOpenIdx] = useState<number | null>(1); // 2nd open in Figma
+  const [openIdx, setOpenIdx] = useState<number | null>(1);
 
   return (
-    <section className="overflow-hidden bg-white py-16 sm:py-24">
-      <div className="mx-auto max-w-[1000px] px-4 sm:px-6 lg:px-8">
+    <section className="w-full px-4 md:px-[60px]">
+      <div className="mx-auto flex max-w-[1320px] flex-col items-center gap-10 py-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center"
+          className="flex max-w-[705px] flex-col items-center gap-4 text-center"
         >
-          <span className="text-base font-normal text-[#8CC641]">Faq</span>
-          <h2 className="mt-2 text-3xl leading-tight font-normal text-black sm:text-[40px]">
+          <span className="text-[16px] leading-[22px] font-normal text-[#8CC641]">Faq</span>
+          <h2 className="text-[30px] leading-[1.25] font-normal text-black sm:text-[40px] sm:leading-[56px]">
             Common questions from job seekers and employers
           </h2>
-          <p className="mt-3 text-lg leading-relaxed font-normal text-black sm:text-[22px]">
+          <p className="text-[18px] leading-[1.4] font-normal text-black/60 sm:text-[22px] sm:leading-[32px]">
             Find quick answers about registration, matching and fees, or contact our team if you
-            have any questions.
+            can’t find what you need.
           </p>
         </motion.div>
 
-        <div className="mt-12 divide-y divide-gray-100">
+        <div className="flex w-full flex-col gap-4">
           {FAQS.map((item, idx) => {
             const isOpen = openIdx === idx;
             return (
-              <div key={item.q} className="py-5">
+              <div key={item.q} className="overflow-hidden rounded-[12px] bg-white">
                 <button
                   type="button"
                   onClick={() => setOpenIdx(isOpen ? null : idx)}
-                  className="flex w-full items-center justify-between text-left text-lg font-normal text-black transition-colors hover:text-[#8CC641]"
+                  style={{ fontFamily: 'var(--font-manrope), sans-serif' }}
+                  className={`flex w-full items-center justify-between gap-4 px-4 py-4 text-left text-[18px] leading-[24px] font-normal transition-colors ${
+                    isOpen ? 'text-black/50' : 'text-black'
+                  }`}
                 >
                   <span>{item.q}</span>
-                  <div className="flex size-6 items-center justify-center">
-                    {isOpen ? (
-                      <Minus className="size-5 shrink-0 text-black" />
-                    ) : (
-                      <Plus className="size-5 shrink-0 text-gray-400" />
-                    )}
-                  </div>
+                  {isOpen ? (
+                    <Minus className="size-5 shrink-0 text-black" />
+                  ) : (
+                    <Plus className="size-5 shrink-0 text-black/60" />
+                  )}
                 </button>
                 <AnimatePresence initial={false}>
                   {isOpen && (
@@ -79,10 +80,13 @@ export function FAQSection() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
-                      <p className="pt-3 pr-8 text-lg leading-relaxed font-normal text-black/80">
+                      <p
+                        style={{ fontFamily: 'var(--font-manrope), sans-serif' }}
+                        className="px-4 pb-4 text-[18px] leading-[24px] font-normal text-black"
+                      >
                         {item.a}
                       </p>
                     </motion.div>

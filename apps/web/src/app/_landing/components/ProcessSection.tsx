@@ -6,25 +6,21 @@ import { BrandMark } from '@/components/brands/BrandMark';
 const STEPS = [
   {
     num: '1',
-    active: true,
     title: 'Create your free account',
     desc: 'Register quickly with your phone or email. Secure and free.',
   },
   {
     num: '2',
-    active: false,
     title: 'Fill your Personal Data',
     desc: 'Complete your registration and prepare your profile for companies.',
   },
   {
     num: '3',
-    active: false,
     title: 'Upload your Resume & Credentials',
     desc: 'Upload your CV or let us extract your skills and certifications.',
   },
   {
     num: '4',
-    active: false,
     title: 'Get Matched & Secure Rizq',
     desc: 'Find job matches, get interview calls, and begin your career with respect.',
   },
@@ -32,100 +28,84 @@ const STEPS = [
 
 export function ProcessSection() {
   return (
-    <section className="overflow-hidden bg-[#F9F9F9] py-16 sm:py-24">
-      <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mx-auto max-w-2xl text-center"
-        >
-          <span className="text-base font-normal text-[#8CC641]">Process</span>
-          <h2 className="mt-2 text-3xl leading-tight font-semibold text-black sm:text-[32px]">
+    <section className="w-full px-4 md:px-[60px]">
+      <div className="mx-auto flex max-w-[1320px] flex-col items-center gap-10 py-10">
+        <div className="flex max-w-[639px] flex-col items-center gap-2 text-center">
+          <span className="text-[16px] leading-[22px] font-normal text-[#8CC641]">Process</span>
+          <h2 className="text-[26px] leading-[1.3] font-semibold text-black sm:text-[32px] sm:leading-[45px]">
             How the Job Bank takes you from registration to a job
           </h2>
-          <p className="mt-3 text-base font-medium text-black/80">
+          <p className="text-[16px] leading-[22px] font-medium text-black/60">
             Four simple steps for job seekers and for employers. Every candidate is assessed, every
             match is checked, and no fees are charged at any stage.
           </p>
-        </motion.div>
+        </div>
 
-        <div className="mt-14 grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
-          {/* Left Column: 4 Steps with stagger */}
-          <div className="space-y-4 lg:col-span-7">
+        <div className="flex w-full flex-col items-center gap-6 lg:flex-row lg:items-center">
+          <div className="flex w-full max-w-[648px] flex-col gap-4">
             {STEPS.map((s, idx) => (
               <motion.div
                 key={s.num}
-                initial={{ opacity: 0, x: -20 }}
+                initial={{ opacity: 0, x: -16 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                whileHover={{ x: 6 }}
-                className="flex cursor-pointer items-start gap-4 rounded-2xl border border-gray-100 bg-white p-6 shadow-xs transition-all hover:border-black/20 hover:shadow-md"
+                transition={{ duration: 0.45, delay: idx * 0.08 }}
+                whileHover={{ x: 4 }}
+                className="flex items-center gap-4 rounded-[12px] bg-white p-4"
               >
-                <div
-                  className={`flex size-8 shrink-0 items-center justify-center rounded-full text-sm font-medium ${
-                    s.active ? 'bg-black text-white' : 'bg-gray-300 text-white'
-                  }`}
-                >
+                <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-black text-[15px] font-medium text-white">
                   {s.num}
                 </div>
-                <div>
-                  <h3 className="text-xl font-medium text-black">{s.title}</h3>
-                  <p className="mt-1 text-sm leading-relaxed font-normal text-black/70">{s.desc}</p>
+                <div className="flex flex-col gap-2">
+                  <h3 className="text-[20px] leading-[28px] font-medium text-black">{s.title}</h3>
+                  <p className="text-[14px] leading-[20px] font-normal text-black">{s.desc}</p>
                 </div>
               </motion.div>
             ))}
           </div>
 
-          {/* Right Column: Exact Registration Card from Figma */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.97 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-5"
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="flex w-full max-w-[648px] flex-col items-center gap-6 rounded-[24px] bg-white px-10 py-6"
           >
-            <div className="mx-auto w-full max-w-md rounded-3xl border border-gray-100 bg-white p-8 shadow-sm">
-              <div className="flex justify-center">
-                <BrandMark />
+            <BrandMark />
+            <div className="flex w-full max-w-[568px] flex-col gap-4">
+              <div className="flex flex-col gap-1.5">
+                <label className="text-[20px] leading-[28px] font-medium text-black">Email</label>
+                <input
+                  type="email"
+                  readOnly
+                  value="muneeb@gmail.com"
+                  className="h-[54px] w-full rounded-full bg-[#F9F9F9] px-4 text-[16px] leading-[22px] text-black/60 focus:outline-none"
+                />
               </div>
-
-              <div className="mt-8 space-y-5">
-                <div>
-                  <label className="text-xl font-medium text-black">Email</label>
-                  <input
-                    type="email"
-                    readOnly
-                    value="muneeb@gmail.com"
-                    className="mt-2 w-full rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-base font-normal text-black focus:outline-none"
-                  />
-                </div>
-
-                <div>
-                  <label className="text-xl font-medium text-black">Password</label>
-                  <input
-                    type="password"
-                    readOnly
-                    value="••••••••••••"
-                    className="mt-2 w-full rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-base font-normal tracking-widest text-black focus:outline-none"
-                  />
-                </div>
-
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  type="button"
-                  className="w-full rounded-full bg-black py-3.5 text-lg font-medium text-white shadow-sm transition-all hover:bg-neutral-800"
-                >
-                  Create Account
-                </motion.button>
-
-                <p className="text-center text-xs font-normal text-black/60">
-                  Free & secure registration verified by OTP
-                </p>
+              <div className="flex flex-col gap-1.5">
+                <label className="text-[20px] leading-[28px] font-medium text-black">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  readOnly
+                  value="************"
+                  className="h-[54px] w-full rounded-full bg-[#F9F9F9] px-4 text-[16px] leading-[22px] text-black/60 focus:outline-none"
+                />
               </div>
+            </div>
+            <div className="flex w-full max-w-[568px] flex-col items-center gap-4">
+              <motion.button
+                whileHover={{ scale: 1.01 }}
+                whileTap={{ scale: 0.98 }}
+                type="button"
+                className="h-[57px] w-full rounded-full bg-black text-[18px] leading-[25px] font-medium text-white transition-colors hover:bg-neutral-800"
+              >
+                Create Account
+              </motion.button>
+              <p className="text-[12px] leading-[17px] font-normal text-black/60">
+                Free &amp; secure registration verified by OTP
+              </p>
             </div>
           </motion.div>
         </div>

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Plus_Jakarta_Sans } from 'next/font/google';
+import { Inter, Manrope, Plus_Jakarta_Sans } from 'next/font/google';
 import type { ReactNode } from 'react';
 import { Toaster } from '@/components/molecules/Toast';
 import '@/design-system/global.css';
@@ -9,7 +9,19 @@ import { themeScript } from '@/design-system/theme-script';
 const fontSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700', '800'],
-  variable: '--font-sans',
+  variable: '--font-plus-jakarta',
+  display: 'swap',
+});
+
+const fontInter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+});
+
+const fontManrope = Manrope({
+  subsets: ['latin'],
+  variable: '--font-manrope',
   display: 'swap',
 });
 
@@ -26,13 +38,15 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={fontSans.variable} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${fontSans.variable} ${fontInter.variable} ${fontManrope.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body
-        className={`min-h-dvh bg-[#F9F9F9] font-sans text-[#000000] antialiased ${fontSans.className}`}
-      >
+      <body className="min-h-dvh bg-[#F9F9F9] font-sans text-black antialiased">
         <ThemeProvider>
           {children}
           <Toaster />

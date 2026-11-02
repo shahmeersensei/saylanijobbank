@@ -1,20 +1,18 @@
 'use client';
 
 import { AnimatePresence, motion } from 'framer-motion';
-import { Bookmark, Briefcase, Clock, MapPin, Share2 } from 'lucide-react';
+import { Banknote, Bookmark, Briefcase, MapPin, Share2 } from 'lucide-react';
+import type { JobSummary } from '../data';
 
 interface JobDetailCardProps {
-  job: {
-    id: string;
-    title: string;
-    company?: string;
-    location: string;
-    salary: string;
-    type: string;
-    description: string;
-    responsibilities: string[];
-  };
+  job: JobSummary;
 }
+
+const META = [
+  { key: 'salary', Icon: Banknote },
+  { key: 'type', Icon: Briefcase },
+  { key: 'location', Icon: MapPin },
+] as const;
 
 export function JobDetailCard({ job }: JobDetailCardProps) {
   return (
@@ -25,74 +23,72 @@ export function JobDetailCard({ job }: JobDetailCardProps) {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -10 }}
         transition={{ duration: 0.2 }}
-        className="flex-1 rounded-3xl border border-gray-100 bg-white p-8 shadow-xs"
+        className="flex w-full flex-col gap-6 rounded-[12px] bg-white p-5 lg:max-w-[760px] lg:p-6"
       >
-        <div className="flex flex-col justify-between gap-4 border-b border-gray-100 pb-6 sm:flex-row sm:items-center">
-          <div>
-            <h2 className="text-3xl font-semibold text-black">{job.title}</h2>
-            <p className="mt-1 text-base text-black/70">
+        <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-2">
+            <h2 className="text-[32px] leading-[30px] font-normal text-black">{job.title}</h2>
+            <p className="text-[16px] leading-[24px] font-normal text-black/60">
               {job.company ? `${job.company} · ` : ''}
               {job.location}
             </p>
           </div>
-
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-4">
             <button
               type="button"
-              className="rounded-full bg-black px-7 py-3 text-base font-medium text-white shadow-sm transition-all hover:bg-neutral-800"
+              className="inline-flex h-[33px] items-center rounded-[8.7px] bg-black px-3 text-[14px] leading-[18px] font-medium text-white transition-colors hover:bg-neutral-800"
             >
               Apply now
             </button>
             <button
               type="button"
-              className="flex size-11 items-center justify-center rounded-full border border-gray-200 text-gray-700 hover:bg-gray-50"
-              aria-label="Save Job"
+              aria-label="Save job"
+              className="flex size-8 items-center justify-center text-black/60 transition-colors hover:text-black"
             >
-              <Bookmark className="size-5" />
+              <Bookmark className="size-5" strokeWidth={1.7} />
             </button>
             <button
               type="button"
-              className="flex size-11 items-center justify-center rounded-full border border-gray-200 text-gray-700 hover:bg-gray-50"
-              aria-label="Share Job"
+              aria-label="Share job"
+              className="flex size-8 items-center justify-center text-black/60 transition-colors hover:text-black"
             >
-              <Share2 className="size-5" />
+              <Share2 className="size-5" strokeWidth={1.7} />
             </button>
           </div>
         </div>
 
-        {/* Job Details Meta */}
-        <div className="mt-6">
-          <h3 className="text-base font-semibold text-black">Job details</h3>
-          <div className="mt-3 space-y-2.5 text-base text-black/80">
-            <p className="flex items-center gap-2.5">
-              <Briefcase className="size-5 text-[#8CC641]" />
-              <span>{job.salary}</span>
-            </p>
-            <p className="flex items-center gap-2.5">
-              <Clock className="size-5 text-[#8CC641]" />
-              <span>{job.type}</span>
-            </p>
-            <p className="flex items-center gap-2.5">
-              <MapPin className="size-5 text-[#8CC641]" />
-              <span>{job.location}</span>
-            </p>
+        <div className="flex flex-col gap-3">
+          <h3 className="text-[20px] leading-[28px] font-medium text-[#0D0D0D]">Job details</h3>
+          <div className="flex flex-col gap-2">
+            {META.map(({ key, Icon }) => (
+              <p
+                key={key}
+                className="flex items-center gap-2 text-[16px] leading-[24px] font-normal text-black/80"
+              >
+                <Icon className="size-[18px] shrink-0 text-[#8CC641]" strokeWidth={1.8} />
+                <span>{job[key]}</span>
+              </p>
+            ))}
           </div>
         </div>
 
-        {/* Full Job Description */}
-        <div className="mt-8 border-t border-gray-100 pt-6">
-          <h3 className="text-base font-semibold text-black">Full job description</h3>
-          <p className="mt-3 text-base leading-relaxed text-black/80">{job.description}</p>
+        <div className="flex flex-col gap-2.5">
+          <h3 className="text-[20px] leading-[30px] font-medium text-[#2D2D2D]">
+            Full job description
+          </h3>
+          <p className="max-w-[568px] text-[16px] leading-[24px] font-normal text-[#595959]">
+            {job.description}
+          </p>
         </div>
 
-        {/* Key Responsibilities */}
-        <div className="mt-8 border-t border-gray-100 pt-6">
-          <h3 className="text-base font-semibold text-black">Key Responsibilities</h3>
-          <ul className="mt-3 space-y-2 text-base text-black/80">
-            {job.responsibilities.map((r, i) => (
-              <li key={i} className="flex items-start gap-2.5">
-                <span className="font-bold text-[#8CC641]">•</span>
-                <span className="leading-relaxed">{r}</span>
+        <div className="flex flex-col gap-2.5">
+          <h3 className="text-[16px] leading-[24px] font-normal text-black">
+            Key Responsibilities
+          </h3>
+          <ul className="flex flex-col gap-3">
+            {job.responsibilities.map((item, i) => (
+              <li key={i} className="text-[16px] leading-[24px] font-normal text-black/60">
+                {item}
               </li>
             ))}
           </ul>

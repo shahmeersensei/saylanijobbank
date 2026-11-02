@@ -26,7 +26,7 @@ export function Navbar({ signedIn = false, dashboardHref = '/login', className }
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 15);
+    const onScroll = () => setScrolled(window.scrollY > 8);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -34,20 +34,17 @@ export function Navbar({ signedIn = false, dashboardHref = '/login', className }
   return (
     <header
       className={cn(
-        'sticky top-0 z-50 h-[70px] w-full transition-all duration-300',
-        scrolled
-          ? 'border-b border-gray-200/80 bg-white/90 shadow-xs backdrop-blur-md'
-          : 'border-b border-gray-100 bg-white/95 backdrop-blur-sm',
+        'sticky top-0 z-50 w-full px-4 transition-all duration-300 md:px-[60px]',
+        scrolled ? 'pt-2' : 'pt-0',
         className,
       )}
     >
-      <div className="mx-auto flex h-full max-w-[1240px] items-center justify-between px-4 sm:px-6 lg:px-8">
-        <NextLink href="/" className="flex items-center gap-2 transition-opacity hover:opacity-90">
+      <div className="mx-auto flex h-[68px] max-w-[1320px] items-center justify-between rounded-full bg-white px-5 shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
+        <NextLink href="/" className="flex items-center transition-opacity hover:opacity-90">
           <BrandMark />
         </NextLink>
 
-        {/* Center Desktop Navigation with Distinct Active Indicator */}
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Main navigation">
+        <nav className="hidden items-center gap-2 md:flex" aria-label="Main navigation">
           {NAV_LINKS.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -55,27 +52,23 @@ export function Navbar({ signedIn = false, dashboardHref = '/login', className }
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  'relative py-1 text-base transition-colors duration-200',
+                  'rounded-full px-2.5 py-1 text-[16px] leading-[22px] transition-colors',
                   isActive
-                    ? 'font-semibold text-[#8CC641]'
-                    : 'font-normal text-black/80 hover:text-black',
+                    ? 'font-medium text-black'
+                    : 'font-normal text-black/60 hover:text-black',
                 )}
               >
                 {link.label}
-                {isActive && (
-                  <span className="absolute right-0 bottom-[-5px] left-0 h-[2.5px] rounded-full bg-[#8CC641]" />
-                )}
               </NextLink>
             );
           })}
         </nav>
 
-        {/* Right Action Buttons */}
-        <div className="hidden items-center gap-3 sm:flex">
+        <div className="hidden items-center gap-2 sm:flex">
           {signedIn ? (
             <NextLink
               href={dashboardHref}
-              className="inline-flex items-center justify-center rounded-full bg-[#8CC641] px-6 py-2.5 text-base font-medium text-white shadow-sm hover:bg-[#7cb337]"
+              className="inline-flex h-[38px] items-center justify-center rounded-full bg-[#8CC641] px-4 text-[16px] font-medium text-white transition-colors hover:bg-[#7CB337]"
             >
               Go to Dashboard
             </NextLink>
@@ -83,13 +76,13 @@ export function Navbar({ signedIn = false, dashboardHref = '/login', className }
             <>
               <NextLink
                 href="/jobs"
-                className="inline-flex items-center justify-center rounded-full bg-[#8CC641] px-6 py-2.5 text-base font-medium text-white shadow-sm hover:bg-[#7cb337] active:scale-95"
+                className="inline-flex h-[38px] items-center justify-center rounded-full bg-[#8CC641] px-4 text-[16px] font-medium text-white transition-all hover:bg-[#7CB337] active:scale-95"
               >
                 Find a Job
               </NextLink>
               <NextLink
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-full border border-black/30 bg-white px-6 py-2.5 text-base font-medium text-black hover:bg-neutral-50 active:scale-95"
+                className="inline-flex h-[38px] items-center justify-center rounded-full bg-[#F9F9F9] px-4 text-[16px] font-medium text-black/60 transition-colors hover:text-black active:scale-95"
               >
                 Hire talent
               </NextLink>
@@ -97,21 +90,19 @@ export function Navbar({ signedIn = false, dashboardHref = '/login', className }
           )}
         </div>
 
-        {/* Mobile Hamburger Toggle */}
         <button
           type="button"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="inline-flex size-10 items-center justify-center rounded-lg p-2 text-gray-700 hover:bg-gray-100 md:hidden"
+          className="inline-flex size-10 items-center justify-center rounded-lg p-2 text-black hover:bg-black/5 md:hidden"
           aria-label="Toggle navigation menu"
         >
           {mobileMenuOpen ? <X className="size-6" /> : <Menu className="size-6" />}
         </button>
       </div>
 
-      {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="border-b border-gray-100 bg-white px-4 pt-2 pb-6 shadow-xl md:hidden">
-          <nav className="flex flex-col gap-2">
+        <div className="mx-auto mt-2 max-w-[1320px] rounded-[24px] bg-white px-4 pt-2 pb-4 shadow-xl md:hidden">
+          <nav className="flex flex-col gap-1">
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -120,28 +111,26 @@ export function Navbar({ signedIn = false, dashboardHref = '/login', className }
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
                   className={cn(
-                    'rounded-xl px-4 py-2.5 text-base transition-all',
-                    isActive
-                      ? 'bg-[#8CC641]/10 font-semibold text-[#8CC641]'
-                      : 'text-black/80 hover:bg-gray-50',
+                    'rounded-xl px-4 py-2.5 text-[16px]',
+                    isActive ? 'font-medium text-black' : 'font-normal text-black/60',
                   )}
                 >
                   {link.label}
                 </NextLink>
               );
             })}
-            <div className="mt-3 flex flex-col gap-2 border-t border-gray-100 pt-3">
+            <div className="mt-2 flex flex-col gap-2 border-t border-black/10 pt-3">
               <NextLink
                 href="/jobs"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full rounded-full bg-[#8CC641] py-3 text-center text-base font-medium text-white shadow-sm"
+                className="w-full rounded-full bg-[#8CC641] py-3 text-center text-[16px] font-medium text-white"
               >
                 Find a Job
               </NextLink>
               <NextLink
                 href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full rounded-full border border-black/30 py-3 text-center text-base font-medium text-black hover:bg-gray-50"
+                className="w-full rounded-full bg-[#F9F9F9] py-3 text-center text-[16px] font-medium text-black/60"
               >
                 Hire talent
               </NextLink>

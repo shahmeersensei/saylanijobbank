@@ -5,9 +5,52 @@
 /* Dark mode follows the data-theme attribute set by ThemeProvider (system-aware). */
 @custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
 
+/*
+ * Serotiva — the typeface used in the Figma "Final Design".
+ * Drop the licensed files into `apps/web/public/fonts/` using these exact names.
+ * Until then the stack falls back to Plus Jakarta Sans (next/font).
+ */
+@font-face {
+  font-family: 'Serotiva';
+  src: url('/fonts/Serotiva-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Serotiva';
+  src: url('/fonts/Serotiva-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Serotiva';
+  src: url('/fonts/Serotiva-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Serotiva';
+  src: url('/fonts/Serotiva-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Serotiva';
+  src: url('/fonts/Serotiva-ExtraBold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Map semantic CSS variables → Tailwind colour utilities (bg-surface, text-fg-muted, …). */
 @theme inline {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-sans:
+    'Serotiva', var(--font-plus-jakarta), ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
+    sans-serif;
 
   --color-bg: var(--bg);
   --color-surface: var(--surface);

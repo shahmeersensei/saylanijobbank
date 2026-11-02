@@ -2,59 +2,52 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { Navbar } from '@/components/organisms/Navbar';
 
 export function ContactHero() {
   return (
-    <section className="overflow-hidden border-b border-gray-100 bg-white pt-12 pb-16 lg:pt-20 lg:pb-24">
-      <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
+    <section className="w-full px-4 md:px-[60px]">
+      <div className="mx-auto flex max-w-[1320px] flex-col gap-[60px]">
+        <Navbar className="px-0 md:px-0" />
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between"
+          className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between"
         >
-          <div className="max-w-xl">
-            <h1 className="text-4xl leading-tight font-bold tracking-tight text-black sm:text-5xl lg:text-[58px]">
-              We&apos;re Here to Help.
-            </h1>
-          </div>
-
-          <div className="max-w-md">
-            <p className="text-base leading-relaxed font-medium text-black/80">
-              Have a question, need assistance, or want to connect with our team? Reach out to us
-              through any of the channels below.
+          <h1 className="max-w-[789px] text-[34px] leading-[1.15] font-bold tracking-[-1px] text-black sm:text-[46px] lg:text-[58px] lg:leading-[67px]">
+            We&apos;re Here to Help.
+          </h1>
+          <div className="flex w-full max-w-[385px] flex-col gap-6">
+            <p className="text-[16px] leading-[22px] font-medium text-black">
+              Have a question, need assistance, or want to connect with our team? Reach out to us,
+              and we&apos;ll help you find the right direction.
             </p>
-
-            <div className="mt-6">
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                href="#message-form"
-                className="inline-flex items-center justify-center rounded-full bg-[#8CC641] px-7 py-3 text-base font-medium text-white shadow-sm transition-all hover:bg-[#7CB337]"
-              >
-                Contact us
-              </motion.a>
-            </div>
+            <a
+              href="#message-form"
+              className="inline-flex h-[38px] w-fit items-center justify-center rounded-full bg-[#8CC641] px-4 text-[16px] leading-[22px] font-medium text-white transition-colors hover:bg-[#7CB337]"
+            >
+              Contact us
+            </a>
           </div>
         </motion.div>
 
-        {/* Real Support Representative Photo from Figma with subtle hover */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
+          initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          whileHover={{ y: -4 }}
-          className="mt-12 cursor-pointer overflow-hidden rounded-[32px] border border-gray-200/80 bg-neutral-900 shadow-xl transition-shadow hover:shadow-2xl"
+          transition={{ duration: 0.7, delay: 0.15 }}
+          className="relative aspect-[1314/517] w-full overflow-hidden rounded-[28px] bg-neutral-900"
         >
-          <div className="relative aspect-[21/8.5] w-full">
-            <Image
-              src="/assets/contact-support.png"
-              alt="Saylani Support Representative at Helpdesk"
-              fill
-              priority
-              className="object-cover object-center select-none"
-            />
-          </div>
+          <Image
+            src="/assets/Rectangle_17_50_5906.png"
+            alt="Saylani support team at the helpdesk"
+            fill
+            priority
+            sizes="1320px"
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-black/30" />
         </motion.div>
       </div>
     </section>

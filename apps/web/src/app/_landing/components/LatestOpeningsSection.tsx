@@ -1,6 +1,6 @@
 'use client';
 
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ArrowRight, Search } from 'lucide-react';
 import NextLink from 'next/link';
 import { useState } from 'react';
@@ -9,9 +9,8 @@ const OPENINGS = [
   {
     id: '1',
     title: 'Accounts Assistant',
-    tags: ['Karachi', 'Full time', '1-2 years'],
+    tags: ['Karachi', 'Full time', '1–2 years'],
     salary: 'PKR 50000–100000',
-    period: 'per month',
     category: 'Office and admin',
   },
   {
@@ -19,7 +18,6 @@ const OPENINGS = [
     title: 'Customer Support Executive',
     tags: ['Lahore', 'Full time', 'Fresh graduates welcome'],
     salary: 'PKR 60000–120000',
-    period: 'per month',
     category: 'Sales and support',
   },
   {
@@ -27,7 +25,6 @@ const OPENINGS = [
     title: 'Commercial Electrician',
     tags: ['Karachi', 'Contract', 'Trade certificate'],
     salary: 'PKR 55000–110000',
-    period: 'per month',
     category: 'Technical trades',
   },
   {
@@ -35,15 +32,13 @@ const OPENINGS = [
     title: 'Data Entry Operator',
     tags: ['Islamabad', 'Full time', 'Typing skills'],
     salary: 'PKR 65000–130000',
-    period: 'per month',
     category: 'Office and admin',
   },
   {
     id: '5',
     title: 'Graphic Designer',
-    tags: ['Lahore', 'Full time', '2-3 years'],
+    tags: ['Lahore', 'Full time', '2–3 years'],
     salary: 'PKR 70000–140000',
-    period: 'per month',
     category: 'IT',
   },
   {
@@ -51,7 +46,6 @@ const OPENINGS = [
     title: 'Digital Marketing Specialist',
     tags: ['Islamabad', 'Remote', 'Experience with SEO and SEM'],
     salary: 'PKR 80000–160000',
-    period: 'per month',
     category: 'IT',
   },
 ];
@@ -69,99 +63,91 @@ export function LatestOpeningsSection() {
   });
 
   return (
-    <section className="overflow-hidden bg-white py-16 sm:py-24">
-      <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
-        <div>
-          <h2 className="text-3xl font-semibold tracking-tight text-black sm:text-[32px]">
+    <section className="w-full px-4 md:px-[60px]">
+      <div className="mx-auto flex max-w-[1320px] flex-col gap-6">
+        <div className="flex flex-col gap-1">
+          <h2 className="text-[28px] leading-[1.2] font-semibold text-black sm:text-[32px] sm:leading-[45px]">
             Latest openings
           </h2>
-          <p className="mt-2 text-base font-medium text-black/80">
+          <p className="text-[16px] leading-[22px] font-medium text-black/60">
             Roles posted by employers across different industries and skill levels.
           </p>
         </div>
 
-        {/* Filter Bar */}
-        <div className="mt-8 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-          <div className="flex w-full max-w-sm items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-base">
-            <Search className="size-4 text-gray-400" />
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-center">
+          <div className="flex h-12 w-full max-w-[711px] items-center gap-2 rounded-full bg-white px-3.5">
+            <Search className="size-5 shrink-0 text-[#54614F]" strokeWidth={1.8} />
             <input
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Job title or skill"
-              className="w-full bg-transparent text-black placeholder:text-gray-400 focus:outline-none"
+              className="w-full bg-transparent text-[16px] leading-[22px] text-black placeholder:text-black/60 focus:outline-none"
             />
           </div>
-
           <div className="flex flex-wrap items-center gap-2">
             {TABS.map((tab) => (
               <button
                 key={tab}
                 type="button"
                 onClick={() => setActiveTab(tab)}
-                className={`relative rounded-full px-5 py-2 text-base font-medium transition-colors ${
-                  activeTab === tab ? 'text-white' : 'text-black hover:bg-gray-100'
+                className={`relative h-9 rounded-full px-3.5 text-[16px] leading-[22px] whitespace-nowrap transition-colors ${
+                  activeTab === tab
+                    ? 'bg-black font-normal text-white'
+                    : 'bg-white text-[#54614F] hover:text-black'
                 }`}
               >
-                {activeTab === tab && (
-                  <motion.div
-                    layoutId="activeTabPill"
-                    className="absolute inset-0 rounded-full bg-black"
-                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                  />
-                )}
-                <span className="relative z-10">{tab}</span>
+                {tab}
               </button>
             ))}
           </div>
         </div>
 
-        {/* Full-Width Horizontal Job Rows */}
-        <motion.div layout className="mt-8 space-y-3">
-          <AnimatePresence mode="popLayout">
-            {filtered.map((job) => (
-              <motion.div
-                key={job.id}
-                layout
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.98 }}
-                transition={{ duration: 0.25 }}
-                whileHover={{ y: -2, x: 4 }}
-                className="flex cursor-pointer flex-col justify-between gap-4 rounded-2xl border border-gray-100 bg-[#F9F9F9] p-6 transition-shadow hover:border-gray-300 hover:bg-white hover:shadow-md sm:flex-row sm:items-center"
-              >
-                <div>
-                  <h3 className="text-2xl font-normal text-black">{job.title}</h3>
-                  <div className="mt-2 flex flex-wrap items-center gap-2">
-                    {job.tags.map((t) => (
-                      <span
-                        key={t}
-                        className="rounded-full border border-gray-100 bg-white px-3.5 py-1 text-sm font-normal text-black"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
+        <div className="mt-2 overflow-hidden rounded-[24px] bg-white">
+          {filtered.map((job) => (
+            <NextLink
+              key={job.id}
+              href="/jobs"
+              className="flex flex-col justify-between gap-3 border-b border-[#E6ECDE] px-7 py-6 last:border-b-0 sm:flex-row sm:items-center"
+            >
+              <div className="flex flex-col gap-2.5">
+                <h3 className="text-[20px] leading-[28px] font-semibold tracking-[-0.2px] text-black">
+                  {job.title}
+                </h3>
+                <div className="flex flex-wrap items-center gap-2">
+                  {job.tags.map((t) => (
+                    <span
+                      key={t}
+                      className="inline-flex h-7 items-center rounded-full bg-[#F9F9F9] px-3 text-[13px] leading-[18px] font-medium text-black/60"
+                    >
+                      {t}
+                    </span>
+                  ))}
                 </div>
+              </div>
+              <div className="text-left sm:text-right">
+                <p className="text-[17px] leading-[24px] font-semibold text-[#10261A]">
+                  {job.salary}
+                </p>
+                <p className="text-[14px] leading-[20px] font-normal text-[#54614F]">per month</p>
+              </div>
+            </NextLink>
+          ))}
+          {filtered.length === 0 && (
+            <p className="px-7 py-10 text-center text-[16px] text-black/60">No openings found.</p>
+          )}
+        </div>
 
-                <div className="text-left sm:text-right">
-                  <p className="text-sm font-bold text-black">{job.salary}</p>
-                  <p className="text-xs text-gray-500">{job.period}</p>
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
-
-        {/* View All Openings Button */}
-        <div className="mt-10 text-center">
-          <NextLink
-            href="/jobs"
-            className="inline-flex items-center gap-2 rounded-full bg-[#8CC641] px-8 py-3.5 text-base font-medium text-white shadow-sm transition-all hover:gap-3 hover:bg-[#7CB337]"
-          >
-            View all openings
-            <ArrowRight className="size-4" />
-          </NextLink>
+        <div className="flex justify-center pt-2">
+          <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+            <NextLink
+              href="/jobs"
+              className="inline-flex h-[52px] items-center gap-2 rounded-full bg-[#8CC641] px-5 text-[15px] leading-[21px] font-semibold text-white transition-colors hover:bg-[#7CB337]"
+            >
+              View all openings
+              <ArrowRight className="size-[18px]" strokeWidth={2} />
+            </NextLink>
+          </motion.div>
         </div>
       </div>
     </section>

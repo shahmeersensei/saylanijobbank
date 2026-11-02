@@ -20,33 +20,18 @@ export default function LandingPage({
   dashboardHref = '/login',
 }: LandingPageProps) {
   return (
-    <div className="min-h-screen bg-[#F9F9F9] text-[#000000]">
-      {/* 1. Master Navbar */}
-      <Navbar signedIn={signedIn} dashboardHref={dashboardHref} />
-
-      {/* 2. Hero Section */}
-      <HeroSection />
-
-      {/* 3. Value Proposition Banner */}
-      <ValuePropBanner />
-
-      {/* 4. 4-Step Process Section */}
-      <ProcessSection />
-
-      {/* 5. Latest Openings Section */}
-      <LatestOpeningsSection />
-
-      {/* 6. Success Stories */}
-      <StoriesSection />
-
-      {/* 7. FAQ Section */}
-      <FAQSection />
-
-      {/* 8. Master Pre-Footer CTA Banner */}
-      <CTABanner />
-
-      {/* 9. Master Footer */}
-      <Footer />
+    <div className="min-h-screen w-full bg-[#F9F9F9] text-black">
+      <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-16 pt-10 lg:gap-[100px]">
+        <Navbar signedIn={signedIn} dashboardHref={dashboardHref} />
+        <HeroSection />
+        <ValuePropBanner />
+        <ProcessSection />
+        <LatestOpeningsSection />
+        <StoriesSection />
+        <FAQSection />
+        <CTABanner />
+        <Footer />
+      </div>
     </div>
   );
 }

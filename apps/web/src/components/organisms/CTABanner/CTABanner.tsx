@@ -1,75 +1,76 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { Brush, Building2, Monitor, PaintBucket, Stethoscope, Wrench } from 'lucide-react';
 import Image from 'next/image';
 import NextLink from 'next/link';
-import { cn } from '@/lib/utils/cn';
 
-interface CTABannerProps {
-  className?: string;
-}
+const ICONS = [Monitor, Stethoscope, Building2, Brush, PaintBucket, Wrench];
 
-export function CTABanner({ className }: CTABannerProps) {
+export function CTABanner() {
   return (
-    <section className={cn('overflow-hidden py-12 sm:py-16 lg:py-20', className)}>
-      <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
+    <section className="w-full px-4 md:px-[60px]">
+      <div className="mx-auto max-w-[1320px]">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="relative overflow-hidden rounded-[36px] bg-gradient-to-r from-[#8CC641] via-[#85C03B] to-[#72A830] px-8 pt-8 text-white shadow-xl sm:px-12 sm:pt-12 lg:px-14 lg:pt-14"
+          transition={{ duration: 0.6 }}
+          className="relative overflow-hidden rounded-[34px] bg-[#8CC641]"
         >
-          <div className="grid grid-cols-1 items-end gap-6 lg:grid-cols-12">
-            {/* Left Content */}
-            <div className="pb-8 sm:pb-12 lg:col-span-7">
-              <h2 className="text-3xl leading-tight font-semibold tracking-tight text-white sm:text-4xl lg:text-[54px]">
+          <span className="pointer-events-none absolute -top-56 -left-28 size-[900px] rounded-full border border-white/25" />
+          <span className="pointer-events-none absolute -top-56 -left-28 size-[900px] rounded-full bg-[#9FD45A]/40" />
+
+          <div className="relative z-10 flex w-full max-w-[721px] flex-col gap-6 px-6 pt-10 pb-10 sm:px-[61px] sm:pt-[79px]">
+            <div className="flex flex-col gap-4">
+              <h2 className="text-[34px] leading-[1.2] font-semibold text-white sm:text-[54px] sm:leading-[76px]">
                 Find your next job or great hire at the Job Bank.
               </h2>
-
-              <p className="mt-4 max-w-xl text-base leading-relaxed font-medium text-white">
+              <p className="max-w-[597px] text-[16px] leading-[22px] font-medium text-white">
                 Job seekers can register for free and get matched with employers who are hiring.
+                Employers can post a vacancy at no cost and meet skilled, verified candidates.
               </p>
-
-              <div className="mt-8 flex flex-wrap items-center gap-3">
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <NextLink
-                    href="/jobs"
-                    className="inline-block rounded-full bg-black px-8 py-3.5 text-base font-medium text-white shadow transition-all hover:bg-neutral-800"
-                  >
-                    Find a Job
-                  </NextLink>
-                </motion.div>
-
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <NextLink
-                    href="/contact"
-                    className="inline-block rounded-full bg-white px-8 py-3.5 text-base font-medium text-black shadow transition-all hover:bg-gray-100"
-                  >
-                    Hire talent
-                  </NextLink>
-                </motion.div>
-              </div>
             </div>
-
-            {/* Right Cutout Real Photo from Figma */}
-            <div className="relative flex justify-center lg:col-span-5 lg:justify-end">
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.2 }}
-                className="relative h-[280px] w-[260px] sm:h-[360px] sm:w-[326px]"
-              >
-                <Image
-                  src="/assets/cta-graduate.png"
-                  alt="Verified Candidate"
-                  fill
-                  priority
-                  className="object-contain object-bottom select-none"
-                />
+            <div className="flex items-center gap-2">
+              <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
+                <NextLink
+                  href="/jobs"
+                  className="inline-flex h-[52px] items-center justify-center rounded-full bg-black px-6 text-[16px] leading-[22px] font-medium text-white transition-colors hover:bg-neutral-800"
+                >
+                  Find a Job
+                </NextLink>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
+                <NextLink
+                  href="/contact"
+                  className="inline-flex h-[52px] items-center justify-center rounded-full bg-white px-6 text-[16px] leading-[22px] font-medium text-black/60 transition-colors hover:text-black"
+                >
+                  Hire talent
+                </NextLink>
               </motion.div>
             </div>
+          </div>
+
+          <div className="pointer-events-none absolute top-1/2 -right-2 hidden -translate-y-1/2 flex-col gap-3 sm:flex">
+            {ICONS.map((Icon, i) => (
+              <span
+                key={i}
+                className="flex size-14 items-center justify-center rounded-[10px] bg-[#F9F9F9] text-[#10261A] shadow-sm"
+              >
+                <Icon className="size-7" strokeWidth={1.6} />
+              </span>
+            ))}
+          </div>
+
+          <div className="pointer-events-none absolute right-[40px] bottom-0 hidden w-[326px] sm:block">
+            <Image
+              src="/assets/image_43_107_3159.png"
+              alt="Verified candidate"
+              width={326}
+              height={466}
+              className="h-auto w-full object-contain object-bottom"
+              priority
+            />
           </div>
         </motion.div>
       </div>

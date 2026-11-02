@@ -4,66 +4,72 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Minus, Plus } from 'lucide-react';
 import { useState } from 'react';
 
-const CONTACT_FAQS = [
+const FAQS = [
   {
-    q: 'I can’t log in to my account. What should I do?',
-    a: 'Use the “Forgot Password” option on the login screen or contact our helpline at +92 21 111 729 526 for immediate OTP reset.',
+    q: 'Is the Job Bank really free?',
+    a: 'Yes, Saylani Job Bank is 100% free for job seekers and employers. We never charge any registration fees or placement commissions.',
   },
   {
-    q: 'I made a mistake in my profile. How can I correct it?',
-    a: 'In your profile page, click the edit profile button to edit any previous changes you have made.',
+    q: 'How does matching work?',
+    a: 'We register each applicant and check their education, skills and experience. Eligible candidates are then matched with employers who have posted matching vacancies.',
   },
   {
-    q: 'I’m having trouble uploading my documents. What can I do?',
-    a: 'Ensure your file is in PDF or JPG format and under 5MB. You can also bring your documents to any Saylani campus for free scanning.',
+    q: 'How long does it take to get placed?',
+    a: 'Placement timelines depend on demand, your trade qualifications, and interview scheduling, typically ranging from a few days to 2 weeks.',
   },
   {
-    q: 'My employer verification is pending. Who can I contact?',
-    a: 'Our employer verification team verifies NTN credentials within 24–48 hours. You can email verification@saylanijobbank.org for expedited review.',
+    q: 'Who can register as a job seeker?',
+    a: 'Anyone looking for employment with vocational skills, trade certificates, or academic diplomas can register.',
+  },
+  {
+    q: 'What documents do I need to register?',
+    a: 'A valid CNIC or Form-B, your latest resume or educational credentials, and any relevant trade certificates.',
+  },
+  {
+    q: 'How do employers post a vacancy?',
+    a: 'Employers register their organization, verify their business profile, and can post vacancies immediately at zero cost.',
   },
 ];
 
 export function ContactFAQ() {
-  const [openIdx, setOpenIdx] = useState<number | null>(1); // 2nd open in Figma
+  const [openIdx, setOpenIdx] = useState<number | null>(1);
 
   return (
-    <section className="overflow-hidden bg-white py-16 sm:py-24">
-      <div className="mx-auto max-w-[1000px] px-4 sm:px-6 lg:px-8">
+    <section className="w-full px-4 py-10 md:px-[60px]">
+      <div className="mx-auto flex max-w-[1320px] flex-col items-center gap-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center"
+          className="flex max-w-[705px] flex-col items-center gap-4 text-center"
         >
-          <span className="text-base font-normal text-[#8CC641]">Faq</span>
-          <h2 className="mt-2 text-3xl leading-tight font-normal text-black sm:text-[40px]">
+          <span className="text-[16px] leading-[22px] font-normal text-[#8CC641]">Faq</span>
+          <h2 className="text-[30px] leading-[1.25] font-normal text-black sm:text-[40px] sm:leading-[56px]">
             Common questions from job seekers and employers
           </h2>
-          <p className="mt-3 text-lg leading-relaxed font-normal text-black sm:text-[22px]">
+          <p className="text-[18px] leading-[1.4] font-normal text-black/60 sm:text-[22px] sm:leading-[32px]">
             Find quick answers about registration, matching and fees, or contact our team if you
             can’t find what you need.
           </p>
         </motion.div>
 
-        <div className="mt-12 divide-y divide-gray-100">
-          {CONTACT_FAQS.map((item, idx) => {
+        <div className="flex w-full flex-col gap-4">
+          {FAQS.map((item, idx) => {
             const isOpen = openIdx === idx;
             return (
-              <div key={item.q} className="py-5">
+              <div key={item.q} className="overflow-hidden rounded-[12px] bg-white">
                 <button
                   type="button"
                   onClick={() => setOpenIdx(isOpen ? null : idx)}
-                  className="flex w-full items-center justify-between text-left text-lg font-normal text-black transition-colors hover:text-[#8CC641]"
+                  className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left text-[18px] leading-[24px] font-normal text-black transition-colors hover:text-[#8CC641]"
                 >
-                  <span className={idx === 1 ? 'text-xl font-medium' : ''}>{item.q}</span>
-                  <div className="flex size-6 items-center justify-center">
-                    {isOpen ? (
-                      <Minus className="size-5 shrink-0 text-black" />
-                    ) : (
-                      <Plus className="size-5 shrink-0 text-gray-400" />
-                    )}
-                  </div>
+                  <span>{item.q}</span>
+                  {isOpen ? (
+                    <Minus className="size-5 shrink-0 text-black" />
+                  ) : (
+                    <Plus className="size-5 shrink-0 text-black/60" />
+                  )}
                 </button>
                 <AnimatePresence initial={false}>
                   {isOpen && (
@@ -71,10 +77,10 @@ export function ContactFAQ() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
-                      <p className="pt-3 pr-8 text-lg leading-relaxed font-normal text-black/80">
+                      <p className="px-4 pb-4 text-[16px] leading-[24px] font-normal text-black/60">
                         {item.a}
                       </p>
                     </motion.div>

@@ -1,117 +1,101 @@
 'use client';
 
 import Image from 'next/image';
+import { ArrowRight } from 'lucide-react';
+
+const INFO = [
+  { label: 'Main Branch (Karachi)', value: 'A-169, Block 3, Clifton, Karachi, Pakistan' },
+  { label: 'Opening Hours', value: 'Mon - Sat | 9:00 AM - 5:00 PM' },
+  { label: 'Helpline Numbers', value: '+92 300 846 4772   +92 21 111 729 526' },
+  { label: 'Official Email', value: 'info@saylanijobbank.org' },
+];
+
+const FIELD =
+  'h-[52px] w-full rounded-[12px] bg-[#F9F9F9] px-3 text-[18px] leading-[18px] text-black placeholder:text-black/50 focus:outline-none focus:ring-1 focus:ring-black/20';
+
+function Field({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <div className="flex flex-col gap-3">
+      <label className="text-[20px] leading-[20px] font-medium text-black">{label}</label>
+      {children}
+    </div>
+  );
+}
 
 export function ContactFormSection() {
   return (
-    <section id="message-form" className="bg-[#F9F9F9] py-16 sm:py-24">
-      <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12">
-          {/* Left Column: Send us a message */}
-          <div className="rounded-3xl border border-gray-100 bg-white p-8 shadow-sm sm:p-10 lg:col-span-6">
-            <h2 className="text-2xl font-normal text-black sm:text-[36px]">Send us a message</h2>
+    <section id="message-form" className="w-full px-4 py-10 md:px-[60px]">
+      <div className="mx-auto flex max-w-[1320px] flex-col items-start justify-center gap-10 lg:flex-row">
+        <div className="flex w-full max-w-[680px] flex-col items-center gap-6 rounded-[34px] bg-white p-6 sm:p-10">
+          <h2 className="text-center text-[30px] leading-[36px] font-normal text-black sm:text-[36px]">
+            Send us a message
+          </h2>
+          <form
+            onSubmit={(e) => e.preventDefault()}
+            className="flex w-full max-w-[600px] flex-col gap-6"
+          >
+            <Field label="Full Name">
+              <input type="text" placeholder="Enter your full name" className={FIELD} />
+            </Field>
+            <Field label="Email address">
+              <input type="email" placeholder="Enter your Email address" className={FIELD} />
+            </Field>
+            <Field label="I am a">
+              <select className={`${FIELD} cursor-pointer appearance-none`}>
+                <option>Select the desired occupation</option>
+                <option>Job Seeker</option>
+                <option>Employer / Hiring Partner</option>
+                <option>Saylani Vocational Alum</option>
+              </select>
+            </Field>
+            <Field label="Subject">
+              <input type="text" placeholder="Enter the subject" className={FIELD} />
+            </Field>
+            <Field label="Your Message">
+              <textarea
+                placeholder="Please provide a detailed description of your message here..."
+                className="h-[174px] w-full resize-none rounded-[14px] bg-[#F9F9F9] p-5 text-[18px] leading-[18px] text-black placeholder:text-black/50 focus:ring-1 focus:ring-black/20 focus:outline-none"
+              />
+            </Field>
+            <button
+              type="submit"
+              className="flex h-[52px] w-full items-center justify-center gap-3.5 rounded-full bg-black text-[16px] leading-[24px] font-bold text-white transition-colors hover:bg-neutral-800"
+            >
+              Send Message
+              <ArrowRight className="size-4" strokeWidth={2} />
+            </button>
+          </form>
+        </div>
 
-            <form onSubmit={(e) => e.preventDefault()} className="mt-8 space-y-5">
-              <div>
-                <label className="text-lg font-medium text-black">Full Name</label>
-                <input
-                  type="text"
-                  placeholder="Enter your full name"
-                  className="mt-2 w-full rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-base text-black placeholder:text-gray-400 focus:ring-1 focus:ring-black focus:outline-none"
-                />
-              </div>
-
-              <div>
-                <label className="text-lg font-medium text-black">Email address</label>
-                <input
-                  type="email"
-                  placeholder="Enter your Email address"
-                  className="mt-2 w-full rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-base text-black placeholder:text-gray-400 focus:ring-1 focus:ring-black focus:outline-none"
-                />
-              </div>
-
-              <div>
-                <label className="text-lg font-medium text-black">I am a</label>
-                <select className="mt-2 w-full cursor-pointer rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-base text-black focus:ring-1 focus:ring-black focus:outline-none">
-                  <option>Select the desired occupation</option>
-                  <option>Job Seeker</option>
-                  <option>Employer / Hiring Partner</option>
-                  <option>Saylani Vocational Alum</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="text-lg font-medium text-black">Subject</label>
-                <input
-                  type="text"
-                  placeholder="Enter the subject"
-                  className="mt-2 w-full rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-base text-black placeholder:text-gray-400 focus:ring-1 focus:ring-black focus:outline-none"
-                />
-              </div>
-
-              <div>
-                <label className="text-lg font-medium text-black">Your Message</label>
-                <textarea
-                  rows={4}
-                  placeholder="Please provide a detailed description of your message here..."
-                  className="mt-2 w-full resize-none rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-base text-black placeholder:text-gray-400 focus:ring-1 focus:ring-black focus:outline-none"
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full rounded-full bg-black py-4 text-base font-medium text-white shadow transition-all hover:bg-neutral-800"
-              >
-                Send Message &gt;
-              </button>
-            </form>
-          </div>
-
-          {/* Right Column: Sticky Saylani Job Bank Info */}
-          <div className="flex flex-col justify-between rounded-3xl border border-gray-100 bg-white p-8 shadow-sm sm:p-10 lg:sticky lg:top-24 lg:col-span-6">
-            <div>
-              <h2 className="text-2xl font-normal text-black sm:text-[36px]">
+        <div className="flex w-full max-w-[600px] flex-col gap-5">
+          <div className="flex flex-col items-center gap-10 rounded-[34px] bg-white p-6 sm:p-10">
+            <div className="flex flex-col items-center gap-3 text-center">
+              <h2 className="text-[30px] leading-[36px] font-normal text-black sm:text-[36px]">
                 Saylani Job Bank Info
               </h2>
-              <p className="mt-3 text-base leading-relaxed font-medium text-black/80">
-                A trusted employment platform by{' '}
-                <span className="font-semibold text-[#8CC641]">Saylani Welfare Trust</span>, helping
-                people find better opportunities and building a stronger future.
+              <p className="max-w-[458px] text-[16px] leading-[19px] font-bold text-black">
+                A trusted employment platform by Saylani Welfare Trust, helping people find better
+                opportunities and building a stronger future.
               </p>
-
-              <div className="mt-8 space-y-4 border-t border-gray-100 pt-6 text-base text-black/80">
-                <div>
-                  <p className="font-semibold text-black">Main Branch (Karachi)</p>
-                  <p className="mt-0.5 text-gray-600">A 169, Block 3, Clifton, Karachi, Pakistan</p>
-                </div>
-                <div>
-                  <p className="font-semibold text-black">Opening Hours</p>
-                  <p className="mt-0.5 text-gray-600">Mon - Sat | 9:00 AM - 5:00 PM</p>
-                </div>
-                <div>
-                  <p className="font-semibold text-black">Helpline Numbers</p>
-                  <p className="mt-0.5 text-gray-600">
-                    +92 300 846 4772 &nbsp; · &nbsp; +92 21 111 729 526
-                  </p>
-                </div>
-                <div>
-                  <p className="font-semibold text-black">Official Email</p>
-                  <p className="mt-0.5 text-gray-600">info@saylanijobbank.org</p>
-                </div>
-              </div>
             </div>
-
-            {/* Real Meeting Photo from Figma */}
-            <div className="mt-8 overflow-hidden rounded-2xl border border-gray-100 bg-neutral-900 shadow-inner">
-              <div className="relative aspect-[16/9] w-full">
-                <Image
-                  src="/assets/contact-meeting.png"
-                  alt="Saylani Consultation Desk"
-                  fill
-                  className="object-cover object-center select-none"
-                />
-              </div>
+            <div className="flex w-full flex-col gap-7">
+              {INFO.map((item) => (
+                <div key={item.label} className="flex flex-col items-center gap-1.5 text-center">
+                  <p className="text-[20px] leading-[20px] font-medium text-black">{item.label}</p>
+                  <p className="text-[16px] leading-[16px] font-normal text-black">{item.value}</p>
+                </div>
+              ))}
             </div>
+          </div>
+
+          <div className="relative aspect-[600/375] w-full overflow-hidden rounded-[24px] bg-neutral-900">
+            <Image
+              src="/assets/Remove_newspaper_effect_20261014144747_1_66_9967.png"
+              alt="Saylani Job Bank consultation desk"
+              fill
+              sizes="600px"
+              className="object-cover object-center"
+            />
           </div>
         </div>
       </div>

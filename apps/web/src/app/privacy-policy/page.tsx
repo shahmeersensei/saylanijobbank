@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { CTABanner } from '@/components/organisms/CTABanner';
 import { Footer } from '@/components/organisms/Footer';
 import { Navbar } from '@/components/organisms/Navbar';
 import { PRIVACY_SECTIONS } from './privacyData';
@@ -10,29 +11,33 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <div className="min-h-screen bg-[#F9F9F9] text-[#000000]">
-      <Navbar />
+    <div className="min-h-screen bg-[#F9F9F9] text-black">
+      <div className="mx-auto flex max-w-[1440px] flex-col gap-16 pt-10 lg:gap-[100px]">
+        <Navbar />
 
-      <main className="py-16 sm:py-24">
-        <div className="mx-auto max-w-[840px] px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-semibold tracking-tight text-black sm:text-5xl lg:text-[54px]">
-            Privacy Policy
-          </h1>
+        <main className="flex flex-col gap-[60px]">
+          <header className="w-full px-4 md:px-[60px]">
+            <h1 className="text-[40px] leading-[1.2] font-semibold text-black sm:text-[54px] sm:leading-[76px]">
+              Privacy Policy
+            </h1>
+          </header>
 
-          <div className="mt-16 space-y-14">
-            {PRIVACY_SECTIONS.map((sec) => (
-              <div key={sec.title} className="text-left">
-                <h2 className="text-2xl leading-snug font-semibold text-black sm:text-[32px]">
-                  {sec.title}
-                </h2>
+          {PRIVACY_SECTIONS.map((sec) => (
+            <section key={sec.title} className="w-full px-4 py-10 md:px-[60px]">
+              <div className="mx-auto flex max-w-[1320px] flex-col items-center gap-10">
+                <div className="rounded-[12px] px-3.5 py-2">
+                  <h2 className="text-center text-[26px] leading-[32px] font-semibold text-black sm:text-[32px]">
+                    {sec.title}
+                  </h2>
+                </div>
 
-                <div className="mt-6 space-y-4 text-lg leading-relaxed text-black/85 sm:text-[20px]">
+                <div className="w-full space-y-4 text-left text-[16px] leading-[24px] font-normal text-black sm:text-[20px] sm:leading-[26px]">
                   {sec.paragraphs.map((p, idx) => (
                     <p key={idx}>{p}</p>
                   ))}
 
                   {sec.bullets && (
-                    <ul className="mt-3 list-inside list-disc space-y-2 pl-2">
+                    <ul className="list-disc space-y-2 pl-6">
                       {sec.bullets.map((b, idx) => (
                         <li key={idx}>{b}</li>
                       ))}
@@ -40,9 +45,9 @@ export default function PrivacyPolicyPage() {
                   )}
 
                   {sec.subsections?.map((sub) => (
-                    <div key={sub.title} className="mt-6">
+                    <div key={sub.title} className="space-y-2 pt-2">
                       <p className="font-semibold text-black">{sub.title}</p>
-                      <ul className="mt-2 list-inside list-disc space-y-2 pl-2">
+                      <ul className="list-disc space-y-2 pl-6">
                         {sub.bullets.map((b, idx) => (
                           <li key={idx}>{b}</li>
                         ))}
@@ -51,12 +56,14 @@ export default function PrivacyPolicyPage() {
                   ))}
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </main>
+            </section>
+          ))}
 
-      <Footer />
+          <CTABanner />
+        </main>
+
+        <Footer />
+      </div>
     </div>
   );
 }
