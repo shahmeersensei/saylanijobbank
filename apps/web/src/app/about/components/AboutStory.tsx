@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Handshake } from 'lucide-react';
 import Image from 'next/image';
 
 export function AboutStory() {
@@ -16,15 +15,39 @@ export function AboutStory() {
           transition={{ duration: 0.7 }}
           className="mx-auto max-w-[1050px] text-center"
         >
-          <h2 className="text-2xl leading-tight font-normal text-black sm:text-3xl lg:text-[48px]">
-            We exist to Reduce unemployment by matching Skilled people with the Employers who are
-            hiring — at zero cost.
+          <h2 className="text-center font-['Serotiva',sans-serif] text-[26px] leading-[1.35] font-normal text-[#7E7E7E] sm:text-[36px] sm:leading-[1.3] lg:text-[46px] lg:leading-[1.35]">
             <motion.span
-              whileHover={{ rotate: 15, scale: 1.15 }}
-              transition={{ type: 'spring', stiffness: 300 }}
-              className="ml-3 inline-flex cursor-pointer align-middle"
+              whileHover={{ scale: 1.08, rotate: -5 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+              className="mr-3 inline-flex size-11 -rotate-[14deg] items-center justify-center rounded-xl bg-white p-2 align-middle shadow-[0_8px_24px_rgba(0,0,0,0.08)] select-none sm:mr-4 sm:size-14 sm:rounded-2xl lg:size-16"
             >
-              <Handshake className="size-9 text-[#8CC641]" />
+              <Image
+                src="/assets/icons/about-profile-2user.svg"
+                alt="Saylani Job Bank Community"
+                width={40}
+                height={40}
+                className="size-7 object-contain sm:size-9 lg:size-10"
+                unoptimized
+              />
+            </motion.span>
+            We exist to <span className="font-semibold text-black">Reduce unemployment</span> by
+            <br className="hidden md:inline" /> matching{' '}
+            <span className="font-semibold text-black">Skilled people</span> with the
+            <br className="hidden md:inline" />{' '}
+            <span className="font-semibold text-black">Employers</span> who need them.
+            <motion.span
+              whileHover={{ scale: 1.08, rotate: 0 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+              className="ml-3 inline-flex size-11 -rotate-[10deg] items-center justify-center rounded-xl bg-white p-2 align-middle shadow-[0_8px_24px_rgba(0,0,0,0.08)] select-none sm:ml-4 sm:size-14 sm:rounded-2xl lg:size-16"
+            >
+              <Image
+                src="/assets/icons/about-collaboration.svg"
+                alt="Saylani Job Bank Collaboration"
+                width={40}
+                height={32}
+                className="h-auto w-7 object-contain sm:w-9 lg:w-10"
+                unoptimized
+              />
             </motion.span>
           </h2>
         </motion.div>
