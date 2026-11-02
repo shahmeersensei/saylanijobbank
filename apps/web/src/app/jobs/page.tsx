@@ -1,5 +1,7 @@
 'use client';
 
+export const revalidate = 86400; // 24 hours - revalidate jobs data
+
 import { useState } from 'react';
 import { CTABanner } from '@/components/organisms/CTABanner';
 import { Footer } from '@/components/organisms/Footer';
